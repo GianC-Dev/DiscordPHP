@@ -5,10 +5,6 @@
       <sourceFolder url="file://$MODULE_DIR$/example" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="Ourted\" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/react/http" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/react/promise-stream" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/react/react" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/ringcentral/psr7" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

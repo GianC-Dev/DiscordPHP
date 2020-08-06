@@ -2,9 +2,6 @@
 
 namespace Ourted;
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
-
 use Exception;
 use Ratchet\Client\Connector;
 use Ratchet\Client\WebSocket;
