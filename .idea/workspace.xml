@@ -11,10 +11,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ea159f4-ced2-4665-a60f-54e39e859bf5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/example/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/scratch.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/vendor/ourted/ourted/.idea/Ourted.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Ourted.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Ourted.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bot.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bot.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/Ourted.php" beforeDir="false" afterPath="$PROJECT_DIR$/example/Ourted.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +42,34 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/react/socket" />
+      <path value="$PROJECT_DIR$/vendor/react/event-loop" />
+      <path value="$PROJECT_DIR$/vendor/react/cache" />
+      <path value="$PROJECT_DIR$/vendor/react/promise-timer" />
+      <path value="$PROJECT_DIR$/vendor/react/react" />
+      <path value="$PROJECT_DIR$/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/vendor/react/http" />
+      <path value="$PROJECT_DIR$/vendor/react/dns" />
+      <path value="$PROJECT_DIR$/vendor/react/stream" />
+      <path value="$PROJECT_DIR$/vendor/react/promise-stream" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/ratchet/rfc6455" />
+      <path value="$PROJECT_DIR$/vendor/ratchet/pawl" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/evenement/evenement" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/ringcentral/psr7" />
+      <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="1fgujobbOGzYBXYEBzxCOGzyaFo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -50,11 +82,14 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="PHP" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/example" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ege\PHPStormProjects\Ourted\example" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Ege\AppData\Roaming\JetBrains\PhpStorm2020.1\scratches\Ourted" />
       <recent name="C:\Users\Ege\PHPStormProjects\Ourted" />
@@ -132,7 +167,7 @@
       <workItem from="1596699543159" duration="13680000" />
       <workItem from="1596714374450" duration="172000" />
       <workItem from="1596714561682" duration="17139000" />
-      <workItem from="1596738296559" duration="7525000" />
+      <workItem from="1596738296559" duration="8520000" />
     </task>
     <servers />
   </component>
@@ -179,26 +214,26 @@
     </state>
     <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596653538616" />
     <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1596708462076" />
-    <state width="1493" height="218" key="GridCell.Tab.0.bottom" timestamp="1596745894811">
+    <state width="1493" height="218" key="GridCell.Tab.0.bottom" timestamp="1596746661509">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="118" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596664973171" />
-    <state width="1493" height="218" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596745894811" />
-    <state width="1493" height="218" key="GridCell.Tab.0.center" timestamp="1596745894811">
+    <state width="1493" height="218" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596746661509" />
+    <state width="1493" height="218" key="GridCell.Tab.0.center" timestamp="1596746661509">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="118" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596664973171" />
-    <state width="1493" height="218" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596745894811" />
-    <state width="1493" height="218" key="GridCell.Tab.0.left" timestamp="1596745894811">
+    <state width="1493" height="218" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596746661509" />
+    <state width="1493" height="218" key="GridCell.Tab.0.left" timestamp="1596746661508">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="118" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596664973170" />
-    <state width="1493" height="218" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596745894811" />
-    <state width="1493" height="218" key="GridCell.Tab.0.right" timestamp="1596745894811">
+    <state width="1493" height="218" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596746661508" />
+    <state width="1493" height="218" key="GridCell.Tab.0.right" timestamp="1596746661509">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="118" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596664973171" />
-    <state width="1493" height="218" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596745894811" />
+    <state width="1493" height="218" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596746661509" />
     <state x="546" y="135" key="NewPhpClassDialog" timestamp="1596659419313">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

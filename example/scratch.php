@@ -10,7 +10,7 @@ class bot_ extends Bot
 
     public function __construct()
     {
-        $this->token = "NzQwNjQyNDAyODg4NDUwMTQw.Xyr-_Q.SbxDdHfUB4_F1cQgBK5-Z6hHbpg";
+        $this->token = "NzQwNjQyNDAyODg4NDUwMTQw.Xyr-_Q.Zkc2FWA5xUB3EtQqprwytSIzQss";
         parent::init($this->token);
         $this->setBot();
     }
@@ -24,8 +24,6 @@ class bot_ extends Bot
 
         // Ready Event Listener
         new EventListener($this->getBot());
-
-
 
 
 
