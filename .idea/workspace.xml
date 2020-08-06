@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5ea159f4-ced2-4665-a60f-54e39e859bf5" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="b8d95d84-d02a-42b4-a506-4a75496e7387" />
+    </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="composer.json" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/evenement/evenement" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/ratchet/pawl" />
+      <path value="$PROJECT_DIR$/vendor/ratchet/rfc6455" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/vendor/react/socket" />
+      <path value="$PROJECT_DIR$/vendor/react/stream" />
+      <path value="$PROJECT_DIR$/vendor/react/event-loop" />
+      <path value="$PROJECT_DIR$/vendor/react/cache" />
+      <path value="$PROJECT_DIR$/vendor/react/dns" />
+      <path value="$PROJECT_DIR$/vendor/react/promise-timer" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/react/promise-stream" />
+      <path value="$PROJECT_DIR$/vendor/react/http" />
+      <path value="$PROJECT_DIR$/vendor/react/react" />
+      <path value="$PROJECT_DIR$/vendor/ringcentral/psr7" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1fgujobbOGzYBXYEBzxCOGzyaFo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="PHP" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ege\AppData\Roaming\JetBrains\PhpStorm2020.1\scratches\Ourted" />
+      <recent name="C:\Users\Ege\PHPStormProjects\Ourted" />
+      <recent name="C:\Users\Ege\PHPStormProjects\Ourted\src\Interfaces" />
+      <recent name="C:\Users\Ege\PHPStormProjects\Ourted\src\Utils" />
+      <recent name="C:\Users\Ege\PHPStormProjects\Ourted\src\Model\Message" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHP Script.scratch.php">
+    <configuration name="Functions.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/Utils/Functions.php">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP 7.4" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <method v="2" />
+    </configuration>
+    <configuration name="Ourted" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/example/Ourted.php">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP 7.4" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP 7.4" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <method v="2" />
+    </configuration>
+    <configuration name="scratch.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/Ourted/scratch.php">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP 7.4" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/example/test.php">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP 7.4" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="PHP Script.Ourted" />
+      <item itemvalue="PHP Script.test" />
+      <item itemvalue="PHP Script.Functions.php" />
+      <item itemvalue="PHP Script.scratch.php" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.scratch.php" />
+        <item itemvalue="PHP Script.Functions.php" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5ea159f4-ced2-4665-a60f-54e39e859bf5" name="Default Changelist" comment="" />
+      <created>1596652194787</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1596652194787</updated>
+      <workItem from="1596652196923" duration="9261000" />
+      <workItem from="1596662595389" duration="2699000" />
+      <workItem from="1596699543159" duration="13680000" />
+      <workItem from="1596714374450" duration="172000" />
+      <workItem from="1596714561682" duration="17139000" />
+      <workItem from="1596738296559" duration="6134000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596708463236">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596653543967" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1596708463236" />
+    <state x="531" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596714464185">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="531" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1596714464185" />
+    <state x="574" y="94" key="#com.intellij.ide.util.MemberChooser" timestamp="1596743987913">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="94" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1596743987913" />
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1596732719522">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596664083120" />
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1596732719522" />
+    <state x="545" y="294" width="445" height="264" key="ComposerInitDialogKey" timestamp="1596714253399">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="545" y="294" width="445" height="264" key="ComposerInitDialogKey/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596652216633" />
+    <state x="545" y="294" key="ComposerInitDialogKey/0.0.1536.824@0.0.1536.824" timestamp="1596714253399" />
+    <state x="548" y="167" key="FileChooserDialogImpl" timestamp="1596708462076">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596653538616" />
+    <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1596708462076" />
+    <state width="1493" height="218" key="GridCell.Tab.0.bottom" timestamp="1596743444224">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="118" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596664973171" />
+    <state width="1493" height="218" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596743444224" />
+    <state width="1493" height="218" key="GridCell.Tab.0.center" timestamp="1596743444224">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="118" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596664973171" />
+    <state width="1493" height="218" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596743444224" />
+    <state width="1493" height="218" key="GridCell.Tab.0.left" timestamp="1596743444224">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="118" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596664973170" />
+    <state width="1493" height="218" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596743444224" />
+    <state width="1493" height="218" key="GridCell.Tab.0.right" timestamp="1596743444224">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="118" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596664973171" />
+    <state width="1493" height="218" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596743444224" />
+    <state x="546" y="135" key="NewPhpClassDialog" timestamp="1596659419313">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="546" y="135" key="NewPhpClassDialog/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596659419313" />
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1596742425910">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596664069078" />
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1596742425910" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1596729899410">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596655638063" />
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1596729899410" />
+    <state x="478" y="116" width="579" height="592" key="find.popup" timestamp="1596739729696">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="116" width="579" height="592" key="find.popup/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596659523621" />
+    <state x="478" y="116" width="579" height="592" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1596739729696" />
+    <state x="596" y="184" key="refactoring.ChangeSignatureDialog" timestamp="1596652957824">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="596" y="184" key="refactoring.ChangeSignatureDialog/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596652957824" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1596736118415">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1596736118415" />
+  </component>
+</project>

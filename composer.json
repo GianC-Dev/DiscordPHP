@@ -1,0 +1,26 @@
+{
+    "name":         "ourted/ourted",
+    "description":  "The Ourted library provides a discord bot process written in PHP.",
+    "type":         "library",
+    "require": {
+        "php": "7.*",
+        "ratchet/pawl": "*",
+        "vlucas/phpdotenv": "*",
+        "ext-json": "*",
+        "react/react": "*",
+        "react/event-loop": "*",
+      "ext-curl": "*"
+    },
+    "license":      "GPL-3.0-or-later",
+    "authors":      [
+        {
+            "name":  "GianC-Dev",
+            "email": "gianegekck@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Ourted\\": "src/"
+        }
+    }
+}
