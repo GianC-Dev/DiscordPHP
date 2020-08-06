@@ -1,13 +1,8 @@
 <?php
-
+require_once __DIR__ . '/vendor/autoload.php';
 
 use Ourted\Bot;
-use Ourted\Utils\Functions;
 use Ourted\Model\Message\Embed;
-
-
-require_once __DIR__ . '/../vendor/autoload.php';
-
 
 class bot_ extends Bot
 {
@@ -15,9 +10,7 @@ class bot_ extends Bot
 
     public function __construct()
     {
-        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'./../');
-        $dotenv->load();
-        $this->token = $_ENV["BOT_TOKEN"];
+        $this->token = "NzQwNjQyNDAyODg4NDUwMTQw.Xyr-_Q.SbxDdHfUB4_F1cQgBK5-Z6hHbpg";
         parent::init($this->token);
         $this->setBot();
     }
@@ -136,17 +129,6 @@ class EventListener extends \Ourted\Interfaces\EventListener
     }
 }
 
-class ping extends \Ourted\Interfaces\Command{
-
-    public function execute($json)
-    {
-        // TODO: Implement execute() method.
-    }
-}
 
 
 new bot_();
-
-
-
-
