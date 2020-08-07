@@ -15,7 +15,7 @@ Without Event Listener
 ```php
 <?php
 
-require_once __DIR__ . '\\vendor\\autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use Dotenv\Dotenv;
 use Ourted\Bot;
@@ -27,7 +27,7 @@ class Ourted extends Bot
 
     public function __construct()
     {
-        $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+        $dotenv = Dotenv::createImmutable(__DIR__);
         $dotenv->load();
         $this->token = $_ENV['BOT_TOKEN'];
         parent::__construct($this->token);
@@ -55,7 +55,7 @@ With Event Listener
 ```php
 <?php
 
-require_once __DIR__ . '\\vendor\\autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use Dotenv\Dotenv;
 use Ourted\Bot;
@@ -67,7 +67,7 @@ class Ourted extends Bot
 
     public function __construct()
     {
-        $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+        $dotenv = Dotenv::createImmutable(__DIR__);
         $dotenv->load();
         $this->token = $_ENV['BOT_TOKEN'];
         parent::__construct($this->token);
