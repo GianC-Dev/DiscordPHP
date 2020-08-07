@@ -100,7 +100,7 @@ class EventListener extends \Ourted\Interfaces\EventListener
         if(isset($json->author->bot)){
             return;
         }
-        $this->func->sendMessage("Message Sended! By: <@{$json->author->id}>, Content: {$json->content}", $json->channel_id);
+        $this->func->sendMessage("Message Sent! By: <@{$json->author->id}>, Content: {$json->content}", $json->channel_id);
     }
 
 
