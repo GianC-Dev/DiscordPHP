@@ -15,7 +15,7 @@ Without Event Listener
 ```php
 <?php
 
-require_once __DIR__ . '\\..\\vendor\\autoload.php';
+require_once __DIR__ . '\\vendor\\autoload.php';
 
 use Dotenv\Dotenv;
 use Ourted\Bot;
@@ -55,7 +55,7 @@ With Event Listener
 ```php
 <?php
 
-require_once __DIR__ . '\\..\\vendor\\autoload.php';
+require_once __DIR__ . '\\vendor\\autoload.php';
 
 use Dotenv\Dotenv;
 use Ourted\Bot;
