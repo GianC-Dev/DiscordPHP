@@ -1,8 +1,8 @@
 <?php
 
-namespace Ourted\Command;
+namespace Ourted\Ops;
 
-class Heartbeatack extends \Ourted\Interfaces\Command
+class Heartbeatack extends \Ourted\Interfaces\Op
 {
     public function execute($json)
     {

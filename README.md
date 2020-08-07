@@ -11,6 +11,7 @@ composer require ourted/ourted
 Edit ``.env`` and configure bot token
 
 ### Examples
+---
 Without Event Listener
 ```php
 <?php
@@ -30,7 +31,7 @@ class Ourted extends Bot
         $dotenv = Dotenv::createImmutable(__DIR__);
         $dotenv->load();
         $this->token = $_ENV['BOT_TOKEN'];
-        parent::__construct($this->token);
+        parent::__construct($this->token, '!');
         $this->setBot();
     }
 
@@ -46,6 +47,7 @@ new Ourted();
 ```
 
 Result Log: 
+---
 ![Example](assets/Hello.PNG)
 
 
@@ -70,7 +72,7 @@ class Ourted extends Bot
         $dotenv = Dotenv::createImmutable(__DIR__);
         $dotenv->load();
         $this->token = $_ENV['BOT_TOKEN'];
-        parent::__construct($this->token);
+        parent::__construct($this->token, "!");
         $this->setBot();
     }
 
@@ -111,3 +113,50 @@ new Ourted();
 ```
 Result:
 ![Example With Event Listener](assets/Event_Listener.PNG)
+---
+Command
+---
+```php
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Dotenv\Dotenv;
+use Ourted\Bot;
+
+class Ourted extends Bot
+{
+
+    public $token;
+
+    public function __construct()
+    {
+        $dotenv = Dotenv::createImmutable(__DIR__);
+        $dotenv->load();
+        $this->token = $_ENV['BOT_TOKEN'];
+        parent::__construct($this->token, '!');
+        $this->setBot();
+    }
+
+    public function setBot()
+    {
+        $this->addCommand("test_command", function ($bot, $command_name){
+            new TestCommand($bot, $command_name);
+        });
+        $this->run();
+    }
+}
+class TestCommand extends Command{
+
+    public function execute($json, $bot){
+        $bot->functions->sendMessage("Command Used! Command: {$json->content}", $json->channel_id);
+    }
+}
+
+new Ourted();
+?>
+```
+Result:
+![Example Command](assets/Command.PNG)
+
+

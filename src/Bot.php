@@ -1,6 +1,7 @@
 <?php
 
 namespace Ourted;
+use Closure;
 use Exception;
 use Ratchet\Client\Connector;
 use Ratchet\Client\WebSocket;
@@ -56,6 +57,12 @@ class Bot
     protected $dispatch = [];
 
     /**
+     * Commands
+     * @var [type]
+     */
+    protected $commands = [];
+
+    /**
      * Listeners
      */
     protected $listeners = [];
@@ -63,28 +70,47 @@ class Bot
     public $loop;
 
     /**
+     * @var string
+     */
+    public $prefix;
+
+    /**
      * Add a new dispatch handler
      *
      * @param string $type Dispatch type
+     * @param string $callback_name Dispatch name
      * @param string|Callable $callback Callback to execute when dispatching action
      */
-    public function addDispatch($type, $callback)
+    public function addDispatch($type, $callback_name, $callback)
     {
-        $this->dispatch[$type][$type] = $callback;
+        $this->dispatch[$type][$callback_name] = $callback;
+    }
+
+    /**
+     * Add a new command
+     *
+     * @param closure $function Command Function
+     * @param string $command_name Command Name
+     */
+    public function addCommand($command_name, $function)
+    {
+        $function($this, $command_name);
     }
 
     /**
      * Set Bot
      *
      * @param string $botToken Current bot token
+     * @param string $botPrefix Bot Prefix
      * @param string $wssUrl WSS URL [optional]
      */
 
-    public function __construct($botToken, $wssUrl = null)
+    public function __construct($botToken, $botPrefix, $wssUrl = null)
     {
         if ($wssUrl !== null) {
             $this->wssUrl = $wssUrl;
         }
+        $this->prefix = $botPrefix;
         $this->token = $botToken;
         $this->functions = new Functions($this);
         $this->settings = new Settings($this);

@@ -1,8 +1,8 @@
 <?php
 
-namespace Ourted\Command;
+namespace Ourted\Ops;
 
-class Identify extends \Ourted\Interfaces\Command
+class Identify extends \Ourted\Interfaces\Op
 {
     public function execute($json)
     {

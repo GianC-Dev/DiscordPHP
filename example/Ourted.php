@@ -1,6 +1,7 @@
 <?php
 
 
+
 use Dotenv\Dotenv;
 use Ourted\Bot;
 use Ourted\Model\Message\Embed;
@@ -14,7 +15,7 @@ class Ourted extends Bot
         $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
         $dotenv->load();
         $this->token = $_ENV['BOT_TOKEN'];
-        parent::__construct($this->token);
+        parent::__construct($this->token, "!");
         $this->setBot();
     }
 

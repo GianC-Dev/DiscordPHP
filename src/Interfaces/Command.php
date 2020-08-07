@@ -2,9 +2,9 @@
 
 namespace Ourted\Interfaces;
 
-use Ratchet\Client\WebSocket;
 use React\EventLoop;
 use Ourted\Bot;
+use stdClass;
 
 abstract class Command
 {
@@ -20,52 +20,28 @@ abstract class Command
      */
     protected $loop;
 
+
     /**
      * Init the instance and set the bot and loop instance
      *
-     * @param Bot $bot Bot instance
-     * @param EventLoop\ExtEventLoop $loop EventLoop instance
+     * @param Bot $bot
+     * @param string $command_name
      */
-    public function __construct(&$bot, &$loop)
+    public function __construct($bot, $command_name)
     {
-        $this->bot = $bot;
-        $this->loop = $loop;
+        $bot->addDispatch('MESSAGE_CREATE', $command_name, function ($json) use ($command_name, $bot) {
+            if (str_starts_with($json->d->content, $bot->prefix . $command_name)) {
+                $this->execute($json->d, $bot);
+            }
+        });
     }
 
     /**
-     * Get the current bot instance
+     * Execute
      *
-     * @return Bot instance
-     */
-    public function getBot()
-    {
-        return $this->bot;
-    }
-
-    /**
-     * Get the current event loop instance
+     * @param stdClass $json
+     * @param Bot $bot
      *
-     * @return EventLoop\
      */
-    public function getLoop()
-    {
-        return $this->loop;
-    }
-
-    /**
-     * Get the current connection from the Bot
-     *
-     * @return WebSocket
-     */
-    public function getConnection()
-    {
-        return $this->getBot()->getConnection();
-    }
-
-    /**
-     * Abstract method definition for child class actions
-     *
-     * @var object $json JSON object
-     */
-    public abstract function execute($json);
+    public abstract function execute($json, $bot);
 }

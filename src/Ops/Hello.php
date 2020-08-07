@@ -1,8 +1,8 @@
 <?php
 
-namespace Ourted\Command;
+namespace Ourted\Ops;
 
-class Hello extends \Ourted\Interfaces\Command
+class Hello extends \Ourted\Interfaces\Op
 {
     public function execute($json)
     {
@@ -11,9 +11,7 @@ class Hello extends \Ourted\Interfaces\Command
         $interval = ((int)$json->d->heartbeat_interval / 1000) - 2;
 
         $bot = $this->getBot();
-        $bot->setInterval($interval, function (){
-            echo "ege";
-        });
+        $bot->setInterval($interval);
         $bot->authorize();
     }
 }

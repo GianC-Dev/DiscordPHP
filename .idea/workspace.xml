@@ -25,9 +25,26 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ea159f4-ced2-4665-a60f-54e39e859bf5" name="Default Changelist" comment="Update | 1.0.1 Beta">
+    <list default="true" id="5ea159f4-ced2-4665-a60f-54e39e859bf5" name="Default Changelist" comment="Update | documents">
+      <change afterPath="$PROJECT_DIR$/src/Interfaces/Op.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/Ourted.php" beforeDir="false" afterPath="$PROJECT_DIR$/example/Ourted.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/example/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bot.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bot.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/Dispatch.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ops/Dispatch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/Heartbeat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ops/Heartbeat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/Heartbeatack.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ops/Heartbeatack.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/Hello.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ops/Hello.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/Identify.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ops/Identify.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/Command.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/EventListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/EventListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/State.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/State.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,18 +112,18 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Ege\PHPStormProjects\Ourted\assets" />
-      <recent name="C:\Users\Ege\AppData\Roaming\JetBrains\PhpStorm2020.1\scratches\Ourted" />
-      <recent name="C:\Users\Ege\PHPStormProjects\Ourted" />
-      <recent name="C:\Users\Ege\PHPStormProjects\Ourted\src\Interfaces" />
-      <recent name="C:\Users\Ege\PHPStormProjects\Ourted\src\Utils" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Ege\PHPStormProjects\Ourted\example" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ege\PHPStormProjects\Ourted\src\Model\Command" />
+      <recent name="C:\Users\Ege\PHPStormProjects\Ourted\src\Model" />
+      <recent name="C:\Users\Ege\PHPStormProjects\Ourted\assets" />
+      <recent name="C:\Users\Ege\AppData\Roaming\JetBrains\PhpStorm2020.1\scratches\Ourted" />
+      <recent name="C:\Users\Ege\PHPStormProjects\Ourted" />
+    </key>
   </component>
-  <component name="RunManager" selected="PHP Script.scratch.php">
+  <component name="RunManager" selected="PHP Script.test.php">
     <configuration name="Functions.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/Utils/Functions.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
@@ -147,14 +164,24 @@
       </CommandLine>
       <method v="2" />
     </configuration>
+    <configuration name="test.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/test/test.php">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP 7.4" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="PHP Script.Ourted" />
       <item itemvalue="PHP Script.test" />
       <item itemvalue="PHP Script.Functions.php" />
       <item itemvalue="PHP Script.scratch.php" />
+      <item itemvalue="PHP Script.test.php" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="PHP Script.test.php" />
         <item itemvalue="PHP Script.scratch.php" />
         <item itemvalue="PHP Script.Functions.php" />
       </list>
@@ -176,7 +203,8 @@
       <workItem from="1596714374450" duration="172000" />
       <workItem from="1596714561682" duration="17139000" />
       <workItem from="1596738296559" duration="11213000" />
-      <workItem from="1596782775941" duration="19013000" />
+      <workItem from="1596782775941" duration="21256000" />
+      <workItem from="1596815341044" duration="8231000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1596747044571</created>
@@ -220,7 +248,21 @@
       <option name="project" value="LOCAL" />
       <updated>1596801330739</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Update | gitignore">
+      <created>1596806536676</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1596806536676</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Update | documents">
+      <created>1596808472205</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1596808472205</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,7 +334,9 @@
     <MESSAGE value="Updated Documents" />
     <MESSAGE value="Logging Heartbeat" />
     <MESSAGE value="Update | 1.0.1 Beta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update | 1.0.1 Beta" />
+    <MESSAGE value="Update | gitignore" />
+    <MESSAGE value="Update | documents" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update | documents" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596708463236">
@@ -335,63 +379,67 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="619" y="311" key="GitRewordDialog/0.0.1536.824@0.0.1536.824" timestamp="1596748345834" />
-    <state width="1493" height="194" key="GridCell.Tab.0.bottom" timestamp="1596801252660">
+    <state width="1493" height="155" key="GridCell.Tab.0.bottom" timestamp="1596823199105">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596801252660" />
-    <state width="1493" height="196" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596787688231" />
-    <state width="1493" height="194" key="GridCell.Tab.0.center" timestamp="1596801252660">
+    <state width="1493" height="192" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596817112815" />
+    <state width="1493" height="155" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596823199105" />
+    <state width="1493" height="155" key="GridCell.Tab.0.center" timestamp="1596823199105">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596801252660" />
-    <state width="1493" height="196" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596787688231" />
-    <state width="1493" height="194" key="GridCell.Tab.0.left" timestamp="1596801252660">
+    <state width="1493" height="192" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596817112815" />
+    <state width="1493" height="155" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596823199105" />
+    <state width="1493" height="155" key="GridCell.Tab.0.left" timestamp="1596823199104">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596801252660" />
-    <state width="1493" height="196" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596787688231" />
-    <state width="1493" height="194" key="GridCell.Tab.0.right" timestamp="1596801252660">
+    <state width="1493" height="192" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596817112815" />
+    <state width="1493" height="155" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596823199104" />
+    <state width="1493" height="155" key="GridCell.Tab.0.right" timestamp="1596823199105">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596801252660" />
-    <state width="1493" height="196" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596787688231" />
+    <state width="1493" height="192" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596817112815" />
+    <state width="1493" height="155" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596823199105" />
     <state x="546" y="135" key="NewPhpClassDialog" timestamp="1596659419313">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="546" y="135" key="NewPhpClassDialog/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596659419313" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1596796866617">
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1596821669725">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596796866617" />
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1596748654795" />
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1596821669725" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1596793112780">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596793112780" />
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1596748826850" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1596801349000">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1596808480518">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596801349000" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596808480518" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1596748459387" />
     <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596747090920">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1596747090920" />
-    <state x="478" y="116" width="579" height="592" key="find.popup" timestamp="1596795125421">
+    <state x="478" y="116" width="579" height="592" key="find.popup" timestamp="1596819996313">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="478" y="116" width="579" height="592" key="find.popup/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596795125421" />
-    <state x="478" y="116" width="579" height="592" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1596739729696" />
-    <state x="499" y="201" key="git4idea.merge.GitPullDialog" timestamp="1596801340759">
+    <state x="478" y="116" width="579" height="592" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1596819996313" />
+    <state x="499" y="201" key="git4idea.merge.GitPullDialog" timestamp="1596806576943">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596801340759" />
+    <state x="499" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596806576943" />
     <state x="499" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1596748894615" />
     <state x="596" y="184" key="refactoring.ChangeSignatureDialog" timestamp="1596652957824">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="596" y="184" key="refactoring.ChangeSignatureDialog/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596652957824" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1596822586628">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1596822586628" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1596794108646">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

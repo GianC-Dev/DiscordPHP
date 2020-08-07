@@ -1,8 +1,8 @@
 <?php
 
-namespace Ourted\Command;
+namespace Ourted\Ops;
 
-class Dispatch extends \Ourted\Interfaces\Command
+class Dispatch extends \Ourted\Interfaces\Op
 {
     public function execute($json)
     {
@@ -13,8 +13,8 @@ class Dispatch extends \Ourted\Interfaces\Command
         $type = $json->t;
 
         \Ourted\State::log('Dispatch type: '.$type);
-        $this->getLoop()->addPeriodicTimer($bot->getInterval(), function() use ($bot){
-            $command = new \Ourted\Command\Heartbeat($bot, $loop);
+        $this->getLoop()->addPeriodicTimer($bot->getInterval(), function() use ($bot, $loop){
+            $command = new \Ourted\Ops\Heartbeat($bot, $loop);
             $command->execute(null);
         });
 

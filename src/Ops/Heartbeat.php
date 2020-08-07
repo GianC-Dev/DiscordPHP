@@ -1,8 +1,8 @@
 <?php
 
-namespace Ourted\Command;
+namespace Ourted\Ops;
 
-class Heartbeat extends \Ourted\Interfaces\Command
+class Heartbeat extends \Ourted\Interfaces\Op
 {
     public function execute($json)
     {

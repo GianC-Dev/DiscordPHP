@@ -3,7 +3,7 @@
 namespace Ourted;
 
 use Closure;
-use Ourted\Command\Identify;
+use Ourted\Ops\Identify;
 use Ratchet\Client\WebSocket;
 use React\EventLoop\ExtEventLoop;
 
@@ -157,7 +157,7 @@ class State
 
         $op = $json->op;
 
-        $commandNs = '\\Ourted\\Command\\'.$this->ops[$op];
+        $commandNs = '\\Ourted\\Ops\\'.$this->ops[$op];
         $command = new $commandNs($this, $loop);
         $command->execute($json);
     }
@@ -201,7 +201,7 @@ class State
      *
      * @param string $type Type of action
      * @param object $json JSON object
-     * @return null
+     * @return mixed
      */
     public function dispatch($type, $json)
     {
@@ -211,11 +211,12 @@ class State
         }
         foreach ($dis as $key => $item) {
             if ($item instanceof Closure) {
-                return $item($json);
+                $item($json);
             } elseif (is_callable($dis)) {
                 $obj = $item[0];
-                return $obj->$item[1]($json);
+                $obj->$item[1]($json);
             }
+            continue;
         }
         return null;
     }
