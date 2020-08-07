@@ -19,31 +19,17 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ea159f4-ced2-4665-a60f-54e39e859bf5" name="Default Changelist" comment="Update | Beta 1.0">
-      <change afterPath="$PROJECT_DIR$/Example.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Ourted.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Ourted.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Event_Listener.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Hello.PNG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/Ourted.php" beforeDir="false" afterPath="$PROJECT_DIR$/example/Ourted.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/composer.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/scratch.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/vendor/ourted/ourted/.idea/Ourted.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bot.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Command/Dispatch.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/Dispatch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/Command.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/EventListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/EventListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/State.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/State.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/Functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/Functions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,18 +97,18 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Ege\PHPStormProjects\Ourted\example" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ege\PHPStormProjects\Ourted\assets" />
       <recent name="C:\Users\Ege\AppData\Roaming\JetBrains\PhpStorm2020.1\scratches\Ourted" />
       <recent name="C:\Users\Ege\PHPStormProjects\Ourted" />
       <recent name="C:\Users\Ege\PHPStormProjects\Ourted\src\Interfaces" />
       <recent name="C:\Users\Ege\PHPStormProjects\Ourted\src\Utils" />
-      <recent name="C:\Users\Ege\PHPStormProjects\Ourted\src\Model\Message" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ege\PHPStormProjects\Ourted\example" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.test">
+  <component name="RunManager" selected="PHP Script.scratch.php">
     <configuration name="Functions.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/Utils/Functions.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
@@ -192,7 +178,7 @@
       <workItem from="1596714374450" duration="172000" />
       <workItem from="1596714561682" duration="17139000" />
       <workItem from="1596738296559" duration="11213000" />
-      <workItem from="1596782775941" duration="12836000" />
+      <workItem from="1596782775941" duration="14256000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1596747044571</created>
@@ -208,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596747153619</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Update | Beta 1.0">
+      <created>1596797089442</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1596797089442</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +224,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -255,7 +248,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -320,25 +313,25 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="619" y="311" key="GitRewordDialog/0.0.1536.824@0.0.1536.824" timestamp="1596748345834" />
-    <state width="1493" height="194" key="GridCell.Tab.0.bottom" timestamp="1596796787913">
+    <state width="1493" height="194" key="GridCell.Tab.0.bottom" timestamp="1596798360778">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596796787913" />
+    <state width="1493" height="194" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596798360778" />
     <state width="1493" height="196" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596787688231" />
-    <state width="1493" height="194" key="GridCell.Tab.0.center" timestamp="1596796787913">
+    <state width="1493" height="194" key="GridCell.Tab.0.center" timestamp="1596798360778">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596796787913" />
+    <state width="1493" height="194" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596798360778" />
     <state width="1493" height="196" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596787688231" />
-    <state width="1493" height="194" key="GridCell.Tab.0.left" timestamp="1596796787913">
+    <state width="1493" height="194" key="GridCell.Tab.0.left" timestamp="1596798360778">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596796787913" />
+    <state width="1493" height="194" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596798360778" />
     <state width="1493" height="196" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596787688231" />
-    <state width="1493" height="194" key="GridCell.Tab.0.right" timestamp="1596796787913">
+    <state width="1493" height="194" key="GridCell.Tab.0.right" timestamp="1596798360778">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596796787913" />
+    <state width="1493" height="194" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596798360778" />
     <state width="1493" height="196" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596787688231" />
     <state x="546" y="135" key="NewPhpClassDialog" timestamp="1596659419313">
       <screen x="0" y="0" width="1536" height="824" />
@@ -354,9 +347,10 @@
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596793112780" />
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1596748826850" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1596748459387">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1596797224826">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1596797224826" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1596748459387" />
     <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596747090920">
       <screen x="0" y="0" width="1536" height="824" />

@@ -45,6 +45,11 @@ new Ourted();
 ?>
 ```
 
+Result Log: 
+![Example](assets/Hello.PNG)
+
+
+---
 With Event Listener
 
 ```php
@@ -104,3 +109,5 @@ class EventListener extends \Ourted\Interfaces\EventListener
 new Ourted();
 ?>
 ```
+Result:
+![Example With Event Listener](assets/Event_Listener.PNG)
