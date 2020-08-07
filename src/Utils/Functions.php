@@ -89,7 +89,7 @@ class Functions
      * Sending Message to Selected Channel
      *
      * @var string|int $msg Message
-     * @var int $channel_id Channel ID
+     * @var string|int $channel_id Channel ID
      */
 
     public function sendMessage($msg, $channel_id)

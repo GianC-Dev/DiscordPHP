@@ -24,7 +24,7 @@ abstract class Command
      * Init the instance and set the bot and loop instance
      *
      * @param Bot $bot Bot instance
-     * @param EventLoop\ $loop EventLoop instance
+     * @param EventLoop\ExtEventLoop $loop EventLoop instance
      */
     public function __construct(&$bot, &$loop)
     {

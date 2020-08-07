@@ -2,7 +2,10 @@
 
 namespace Ourted;
 
+use Closure;
+use Ourted\Command\Identify;
 use Ratchet\Client\WebSocket;
+use React\EventLoop\ExtEventLoop;
 
 class State
 {
@@ -20,9 +23,15 @@ class State
 
     /**
      * Loop instance
-     * @var \React\EventLoop
+     * @var ExtEventLoop
      */
     protected $loop;
+
+    /**
+     * Loop instance
+     * @var Bot
+     */
+    protected $bot;
 
     /**
      * Default heartbeat interval
@@ -66,10 +75,10 @@ class State
      * Init the State handler and set the connection, token and loop properties
      *
      * @param WebSocket $conn Connection instance
-     * @param string $token Bot token (from API)
-     * @param \React\EventLoop $loop  Loop instance
+     * @param ExtEventLoop $loop  Loop instance
+     * @param mixed $token Current Bot Token
      */
-    public function __construct($conn, $token, $loop)
+    public function __construct($conn, $loop, $token)
     {
         $this->connection = $conn;
         $this->token = $token;
@@ -109,7 +118,7 @@ class State
     /**
      * Get the current event loop
      *
-     * @return \React\EventLoop instance
+     * @return ExtEventLoop instance
      */
     public function getLoop()
     {
@@ -160,7 +169,8 @@ class State
     {
         $loop = $this->getLoop();
 
-        $command = new \Ourted\Command\Identify($this, $loop);
+        /** @noinspection PhpParamsInspection */
+        $command = new Identify($this, $loop);
         $command->execute(null);
 
         $this->status = self::STATUS_AUTHED;
@@ -191,20 +201,22 @@ class State
      *
      * @param string $type Type of action
      * @param object $json JSON object
-     * @return mixed Result from call of dispatch handler
+     * @return null
      */
     public function dispatch($type, $json)
     {
-        if (!array_key_exists($type, $this->dispatch)) {
+        $dis = $this->dispatch[$type];
+        if(empty($dis)){
             return null;
         }
-        $dis = $this->dispatch[$type];
-
-        if ($dis instanceof \Closure) {
-            return $dis($json);
-        } elseif (is_callable($dis)) {
-            $obj = $dis[0];
-            return $obj->$dis[1]($json);
+        foreach ($dis as $key => $item) {
+            if ($item instanceof Closure) {
+                return $item($json);
+            } elseif (is_callable($dis)) {
+                $obj = $item[0];
+                return $obj->$item[1]($json);
+            }
         }
+        return null;
     }
 }
