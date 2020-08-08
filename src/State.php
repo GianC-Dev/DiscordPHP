@@ -205,18 +205,18 @@ class State
      */
     public function dispatch($type, $json)
     {
-        $dis = $this->dispatch[$type];
-        if(empty($dis)){
-            return null;
-        }
-        foreach ($dis as $key => $item) {
-            if ($item instanceof Closure) {
-                $item($json);
-            } elseif (is_callable($dis)) {
-                $obj = $item[0];
-                $obj->$item[1]($json);
+        if(!empty($this->dispatch[$type]) && isset($this->dispatch[$type])){
+            $dis = $this->dispatch[$type];
+            foreach ($dis as $key => $item) {
+                if ($item instanceof Closure) {
+                    $item($json);
+                } elseif (is_callable($dis)) {
+                    $obj = $item[0];
+                    $obj->$item[1]($json);
+                }
+                continue;
             }
-            continue;
+            return null;
         }
         return null;
     }
