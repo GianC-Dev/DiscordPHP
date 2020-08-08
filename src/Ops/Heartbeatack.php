@@ -2,7 +2,7 @@
 
 namespace Ourted\Ops;
 
-class Heartbeatack extends \Ourted\Interfaces\Op
+class Heartbeatack extends \Ourted\Model\Op\Op
 {
     public function execute($json)
     {

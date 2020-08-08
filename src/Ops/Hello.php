@@ -2,7 +2,7 @@
 
 namespace Ourted\Ops;
 
-class Hello extends \Ourted\Interfaces\Op
+class Hello extends \Ourted\Model\Op\Op
 {
     public function execute($json)
     {

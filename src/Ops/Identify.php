@@ -2,7 +2,7 @@
 
 namespace Ourted\Ops;
 
-class Identify extends \Ourted\Interfaces\Op
+class Identify extends \Ourted\Model\Op\Op
 {
     public function execute($json)
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ourted\Interfaces;
+namespace Ourted\Model\Command;
 
 use React\EventLoop;
 use Ourted\Bot;

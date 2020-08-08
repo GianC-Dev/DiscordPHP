@@ -2,7 +2,7 @@
 
 namespace Ourted\Ops;
 
-class Dispatch extends \Ourted\Interfaces\Op
+class Dispatch extends \Ourted\Model\Op\Op
 {
     public function execute($json)
     {

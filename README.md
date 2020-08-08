@@ -10,8 +10,15 @@ composer require ourted/ourted
 
 Edit ``.env`` and configure bot token
 
-### Examples
+
+
+
+Examples
 ---
+
+#### More documents in example/Ourted.php
+
+
 Without Event Listener
 ```php
 <?php
@@ -112,6 +119,7 @@ new Ourted();
 ?>
 ```
 Result:
+---
 ![Example With Event Listener](assets/Event_Listener.PNG)
 ---
 Command
@@ -157,6 +165,55 @@ new Ourted();
 ?>
 ```
 Result:
+---
 ![Example Command](assets/Command.PNG)
+
+---
+
+Delete Message
+---
+
+````php
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Dotenv\Dotenv;
+use Ourted\Bot;
+
+class Ourted extends Bot
+{
+
+    public $token;
+
+    public function __construct()
+    {
+        $dotenv = Dotenv::createImmutable(__DIR__);
+        $dotenv->load();
+        $this->token = $_ENV['BOT_TOKEN'];
+        parent::__construct($this->token, '!');
+        $this->setBot();
+    }
+
+    public function setBot()
+    {
+
+
+        // Get Channel
+        $channel = $this->functions->get_channel(CHANNEL_ID);
+
+        // Delete Messages
+        $message = $func->getMessage($channel, MESSAGE_ID);
+        $func->deleteMessage($message);
+
+
+        $this->run();
+    }
+}
+
+new Ourted();
+?>
+````
+
 
 

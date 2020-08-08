@@ -1,11 +1,11 @@
 <?php
 
-namespace Ourted\Interfaces;
+namespace Ourted\Model\EventListener;
 
 use Ourted\Bot;
 use Ourted\Utils\Functions;
 
-class EventListener
+abstract class EventListener
 {
     /**
      * Bot

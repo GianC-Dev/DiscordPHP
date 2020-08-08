@@ -1,6 +1,6 @@
 <?php
 
-namespace Ourted\Interfaces;
+namespace Ourted\Model\Op;
 
 use Ourted\Bot;
 use Ratchet\Client\WebSocket;

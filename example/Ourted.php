@@ -30,13 +30,19 @@ class Ourted extends Bot
             "EventListener"
         );
 
+        // Channel
+        $channel = $this->functions->get_channel("701838704095920198");
+
+        // Delete Messages
+        $message = $func->getMessage($channel, 741581191009796128);
+        $func->deleteMessage($message);
+
         // Send Message
-        $func->sendMessage("Test", "701838704095920198");
+        $func->sendMessage("Test", $channel);
 
 
         // Change Bot Username
         $settings->change_bot_username("test_bot");
-
 
         /* Embed Start */
         $embed_array = array();
@@ -48,7 +54,7 @@ class Ourted extends Bot
 
 
         // Without Embed
-        $func->sendMessage("Family: " . $embed_string, "701838704095920198");
+        $func->sendMessage("Family: " . $embed_string, $channel);
 
 
         // With Single Array
@@ -75,7 +81,7 @@ class Ourted extends Bot
     }
 }
 
-class EventListener extends \Ourted\Interfaces\EventListener
+class EventListener extends \Ourted\Model\EventListener\EventListener
 {
 
 # Guild

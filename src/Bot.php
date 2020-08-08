@@ -1,6 +1,7 @@
 <?php
 
 namespace Ourted;
+
 use Closure;
 use Exception;
 use Ratchet\Client\Connector;
@@ -9,8 +10,6 @@ use Ratchet\RFC6455\Messaging\MessageInterface;
 use React\EventLoop\Factory;
 use Ourted\Utils\Functions;
 use Ourted\Utils\Settings;
-
-//use Ourted\Functions;
 
 class Bot
 {
