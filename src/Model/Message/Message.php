@@ -33,12 +33,9 @@ class Message
      */
     public function __construct($bot, $message_id, $channel)
     {
-        $headers[] = 'Authorization: Bot ' . $bot->token;
-        $headers[] = 'User-Agent: Ourted (http://example.com, v0.1)';
-        $headers[] = 'Content-Type: application/json';
-        $result = json_decode($bot->functions->init_curl_with_header(
+        $result = json_decode($bot->api->init_curl_with_header(
             "channels/{$channel->id}/messages/{$message_id}",
-            $headers, "", "GET"));
+            "", "GET"));
 
         $this->id = $result->id ?? null;
         $this->reactions = $result->reactions ?? null;

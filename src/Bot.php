@@ -4,11 +4,14 @@ namespace Ourted;
 
 use Closure;
 use Exception;
+use Ourted\Interfaces\Channel;
+use Ourted\Interfaces\Guild;
+use Ourted\Interfaces\User;
+use Ourted\Utils\API;
 use Ratchet\Client\Connector;
 use Ratchet\Client\WebSocket;
 use Ratchet\RFC6455\Messaging\MessageInterface;
 use React\EventLoop\Factory;
-use Ourted\Utils\Functions;
 use Ourted\Utils\Settings;
 
 class Bot
@@ -20,10 +23,10 @@ class Bot
     protected $wssUrl = 'wss://gateway.discord.gg/?v=6&encoding=json';
 
     /**
-     * Functions
-     * @var Functions Instance
+     * State
+     * @var State
      */
-    public $functions;
+    public $state;
 
     /**
      * Current Connection
@@ -74,6 +77,28 @@ class Bot
     public $prefix;
 
     /**
+     * @var bool
+     */
+    public $send_log = false;
+
+
+    /* Classes */
+
+    /** @var API */
+    public $api;
+
+    /** @var Channel */
+    public $channel;
+
+    /** @var Guild */
+    public $guild;
+
+    /** @var Guild */
+    public $user;
+
+    /* Finish Classes */
+
+    /**
      * Add a new dispatch handler
      *
      * @param string $type Dispatch type
@@ -111,8 +136,12 @@ class Bot
         }
         $this->prefix = $botPrefix;
         $this->token = $botToken;
-        $this->functions = new Functions($this);
         $this->settings = new Settings($this);
+        $this->channel = new Channel($this);
+        $this->guild = new Guild($this);
+        $this->user = new User($this);
+        $this->api = new API($this);
+
         $this->loop = Factory::create();
         $this->init();
     }
@@ -126,7 +155,7 @@ class Bot
     {
         foreach ($listener as $item) {
             $this->listeners[] = $item;
-            new $item($this->getBot());
+            new $item($this);
         }
     }
 
@@ -140,7 +169,7 @@ class Bot
         $connector = new Connector($this->loop, $reactConnector);
         $connector($this->wssUrl)->then(function (WebSocket $conn) {
             $this->connection = $conn;
-            $state = new State($conn, $this->loop, $this->token);
+            $this->state = $state  = new State($conn, $this->loop, $this->token);
             $state->addDispatch($this->dispatch);
             $conn->on('message', function (MessageInterface $msg) use ($conn, $state) {
                 $json = json_decode($msg);

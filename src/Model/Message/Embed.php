@@ -2,9 +2,9 @@
 
 namespace Ourted\Model\Message;
 
-use Ourted\Utils\Functions;
+use Ourted\Bot;
 
-class Embed extends Functions
+class Embed
 {
 
 
@@ -19,13 +19,12 @@ class Embed extends Functions
      *
      *
      * @param $title
-     * @param $bot
+     * @param Bot $bot
      * @param $channel_id
      * @param string $description
      */
     public function __construct($title, $bot, $channel_id, $description = "")
     {
-        parent::__construct($bot->getBot());
         $this->embed['title'] = $title;
         $this->embed['description'] = $description;
         $this->embed['channel_id'] = $channel_id;
@@ -81,11 +80,6 @@ class Embed extends Functions
     public
     function send_embed()
     {
-        $headers = array();
-        $headers[] = 'Authorization: Bot ' . $this->token;
-        $headers[] = 'User-Agent: Ourted (http://example.com, v0.1)';
-
-        $headers[] = 'Content-Type: application/json';
         $field = "{
   \"content\": \"\",
   \"tts\": false,
@@ -97,8 +91,8 @@ class Embed extends Functions
    \"fields\": [" . $this->get_fields() . "]
   }
 }";
-        parent::init_curl_with_header(
+        $this->bot->api->init_curl_with_header(
             "channels/{$this->embed['channel_id']}/messages",
-            $headers, $field, "POST");
+             $field, "POST");
     }
 }

@@ -3,7 +3,6 @@
 namespace Ourted\Model\EventListener;
 
 use Ourted\Bot;
-use Ourted\Utils\Functions;
 
 abstract class EventListener
 {
@@ -13,13 +12,6 @@ abstract class EventListener
      * @var Bot $bot
      */
     public $bot;
-
-    /**
-     * Bot
-     *
-     * @var Functions $bot
-     */
-    public $func;
 
 
     /**
@@ -47,7 +39,6 @@ abstract class EventListener
     {
         $this->bot = $bot;
         $this->token = $bot->getToken();
-        $this->func = $bot->functions;
         $bot->addDispatch('GUILD_CREATE',$this->generateRandomString(), function ($json) {
             $this->onGuildJoin($json->d, $this->bot);
         });

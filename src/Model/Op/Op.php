@@ -26,7 +26,7 @@ abstract class Op
      * @param Bot $bot Bot instance
      * @param ExtEventLoop $loop EventLoop instance
      */
-    public function __construct(&$bot, &$loop)
+    public function __construct($bot, $loop)
     {
         $this->bot = $bot;
         $this->loop = $loop;

@@ -22,7 +22,6 @@ class Ourted extends Bot
     public function setBot()
     {
 
-        $func = $this->functions;
         $settings = $this->settings;
 
         // Ready Event Listeners
@@ -31,14 +30,14 @@ class Ourted extends Bot
         );
 
         // Channel
-        $channel = $this->functions->get_channel("701838704095920198");
+        $channel = $this->channel->getChannel("701838704095920198");
 
         // Delete Messages
-        $message = $func->getMessage($channel, 741581191009796128);
-        $func->deleteMessage($message);
+        $message = $this->channel->getMessage($channel, 741581191009796128);
+        $this->channel->deleteMessage($message);
 
         // Send Message
-        $func->sendMessage("Test", $channel);
+        $this->channel->sendMessage("Test", $channel);
 
 
         // Change Bot Username
@@ -47,14 +46,14 @@ class Ourted extends Bot
         /* Embed Start */
         $embed_array = array();
         $embed_string = "";
-        foreach (json_decode($func->get_guilds_properties()) as $key => $server) {
+        foreach (json_decode($this->guild->get_guilds_properties()) as $key => $server) {
             $embed_array[] = array("name" => "Server of {$key}.", "value" => $server->name);
             $embed_string .= " Server of {$key}: {$server->name} ";
         }
 
 
         // Without Embed
-        $func->sendMessage("Family: " . $embed_string, $channel);
+        $this->channel->sendMessage("Family: " . $embed_string, $channel);
 
 
         // With Single Array
@@ -70,10 +69,18 @@ class Ourted extends Bot
 
         /* Embed End */
 
-
-        // Change Error Reporting
-        $settings->change_error_reporting(0);
-        $settings->change_error_reporting(false);
+        /* Bulk Delete Start */
+        $ids = "";
+        // Count Messages
+        foreach (json_decode($this->channel->getMessages($channel)) as $key => $item) {
+            if($key == 99){
+                return;
+            }
+            count(json_decode($this->channel->getMessages($channel))) -1 == $key?
+                $ids .= "\"$item->id\"" : $ids.= "\"$item->id\",";
+        }
+        // Delete Messages
+        $this->channel->deleteBulkMessage("[{$ids}]", $channel);
 
 
         parent::run();

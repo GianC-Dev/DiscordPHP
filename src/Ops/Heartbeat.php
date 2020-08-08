@@ -6,7 +6,8 @@ class Heartbeat extends \Ourted\Model\Op\Op
 {
     public function execute($json)
     {
-        \Ourted\State::log('Execute: HEARTBEAT');
+        $this->bot->send_log ?
+        \Ourted\State::log('Execute: HEARTBEAT') : null;
 
         $json = json_encode([
             'op' => 1,

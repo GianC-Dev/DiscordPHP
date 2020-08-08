@@ -40,6 +40,11 @@ class State
     protected $interval = 5;
 
     /**
+     * @var bool
+     */
+    public $send_log = false;
+
+    /**
      * Discord API operations to class relationships
      * @var [type]
      */
@@ -92,6 +97,7 @@ class State
      */
     public static function log($message)
     {
+
         echo '['.date('Y-m-d H:i:s').'] '. $message."\n";
     }
 

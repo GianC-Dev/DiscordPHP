@@ -5,7 +5,7 @@ namespace Ourted\Utils;
 
 use Ourted\Bot;
 
-class Settings extends Functions
+class Settings
 {
 
     /**
@@ -24,7 +24,6 @@ class Settings extends Functions
 
     public function __construct($bot)
     {
-        parent::__construct($bot);
         $this->bot = $bot;
         $this->token = $bot->getToken();
     }
@@ -37,24 +36,10 @@ class Settings extends Functions
 
     public function change_bot_username($new_name)
     {
-        $headers = array();
-        $headers[] = 'Authorization: Bot ' . $this->token;
-        $headers[] = 'User-Agent: Ourted (http://example.com, v0.1)';
-
-        $headers[] = 'Content-Type: application/json';
-        $this->init_curl_with_header(
+        $this->bot->api->init_curl_with_header(
             "users/@me",
-            $headers, "{\"username\":\"{$new_name}\"}", "PATCH");
+             "{\"username\":\"{$new_name}\"}", "PATCH");
     }
 
-    /**
-     * Set Error Reporting
-     *
-     * @var boolean|int $error Error Reporting
-     */
 
-    public function change_error_reporting($error)
-    {
-        error_reporting($error);
-    }
 }

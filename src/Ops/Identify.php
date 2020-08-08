@@ -6,7 +6,8 @@ class Identify extends \Ourted\Model\Op\Op
 {
     public function execute($json)
     {
-        \Ourted\State::log('Execute: IDENTIFY');
+        $this->bot->send_log ?
+            \Ourted\State::log('Execute: IDENTIFY'):null;
 
         $json = json_encode([
             'op' => 2,

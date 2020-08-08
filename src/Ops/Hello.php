@@ -6,7 +6,8 @@ class Hello extends \Ourted\Model\Op\Op
 {
     public function execute($json)
     {
-        \Ourted\State::log('Execute: HELLO');
+        $this->bot->send_log ?
+        \Ourted\State::log('Execute: HELLO'):null;
 
         $interval = ((int)$json->d->heartbeat_interval / 1000) - 2;
 

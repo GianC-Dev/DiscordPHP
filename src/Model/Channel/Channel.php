@@ -2,9 +2,7 @@
 
 namespace Ourted\Model\Channel;
 
-use React\EventLoop;
 use Ourted\Bot;
-use stdClass;
 
 class Channel
 {
@@ -30,13 +28,9 @@ class Channel
      */
     public function __construct($bot, $channel_id)
     {
-        $headers = array();
-        $headers[] = 'Authorization: Bot ' . $bot->token;
-        $headers[] = 'User-Agent: Ourted (http://example.com, v0.1)';
-        $headers[] = 'Content-Type: application/json';
-        $result = $bot->functions->init_curl_with_header(
+        $result = $bot->api->init_curl_with_header(
             "channels/{$channel_id}",
-            $headers, "", "GET");
+            "", "GET");
         $json = json_decode($result);
         $this->id = $json->id;
         $this->last_message_id = $json->last_message_id;
