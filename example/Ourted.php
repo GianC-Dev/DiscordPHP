@@ -25,8 +25,8 @@ class Ourted extends Bot
         $func = $this->functions;
         $settings = $this->settings;
 
-        // Ready Event Listener
-        $this->addListener(
+        // Ready Event Listeners
+        $this->addListeners(
             "EventListener"
         );
 

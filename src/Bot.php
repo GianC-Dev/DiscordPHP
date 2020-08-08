@@ -120,12 +120,14 @@ class Bot
     /**
      * Add a new dispatch handler
      *
-     * @param string $listener
+     * @param string ...$listener
      */
-    public function addListener($listener)
+    public function addListeners(...$listener)
     {
-        $this->listeners[] = $listener;
-        new $listener($this->getBot());
+        foreach ($listener as $item) {
+            $this->listeners[] = $item;
+            new $item($this->getBot());
+        }
     }
 
 

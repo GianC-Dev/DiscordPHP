@@ -1,5 +1,6 @@
 <?php
 
+
 namespace Ourted\Utils;
 
 use Ourted\Bot;

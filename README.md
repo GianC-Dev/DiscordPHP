@@ -86,7 +86,7 @@ class Ourted extends Bot
     public function setBot()
     {
         // Ready Event Listener
-        $this->addListener(
+        $this->addListeners(
             "EventListener"
         );
         echo "Hello World\n";

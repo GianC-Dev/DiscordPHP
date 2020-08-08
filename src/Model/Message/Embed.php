@@ -101,5 +101,4 @@ class Embed extends Functions
             "channels/{$this->embed['channel_id']}/messages",
             $headers, $field, "POST");
     }
-
 }

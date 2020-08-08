@@ -1,5 +1,6 @@
 <?php
 
+
 namespace Ourted\Utils;
 
 use Ourted\Bot;
@@ -52,7 +53,7 @@ class Functions
     {
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, "https://discord.com/api/v6/".$url);
+        curl_setopt($ch, CURLOPT_URL, "https://discord.com/api/v6/" . $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $tur);
         curl_setopt($ch, CURLOPT_POST, 1);
@@ -86,7 +87,7 @@ class Functions
         $headers[] = 'X-RateLimit-Reset: 147017';
         $headers[] = 'X-RateLimit-Reset-After: 5';
         $headers[] = 'X-RateLimit-Bucket: abcd1234';
-        curl_setopt($ch, CURLOPT_URL, "https://discord.com/api/v6/".$url);
+        curl_setopt($ch, CURLOPT_URL, "https://discord.com/api/v6/" . $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $tur);
         curl_setopt($ch, CURLOPT_POST, 1);
@@ -167,7 +168,6 @@ class Functions
     }
 
 
-
     /**
      * Get guilds
      *
@@ -185,7 +185,8 @@ class Functions
             $headers, "", "GET");
     }
 
-    public function get_channel($channel_id){
+    public function get_channel($channel_id)
+    {
         return new \Ourted\Model\Channel\Channel($this->bot, $channel_id);
     }
 
