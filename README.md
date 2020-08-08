@@ -109,7 +109,7 @@ class EventListener extends \Ourted\Interfaces\EventListener
         if(isset($json->author->bot)){
             return;
         }
-        $this->func->sendMessage("Message Sent! By: <@{$json->author->id}>, Content: {$json->content}", $json->channel_id);
+        $this->channel->sendMessage("Message Sent! By: <@{$json->author->id}>, Content: {$json->content}", $json->channel_id);
     }
 
 
@@ -157,7 +157,7 @@ class Ourted extends Bot
 class TestCommand extends Command{
 
     public function execute($json, $bot){
-        $bot->functions->sendMessage("Command Used! Command: {$json->content}", $json->channel_id);
+        $bot->channel->sendMessage("Command Used! Command: {$json->content}", $json->channel_id);
     }
 }
 
@@ -200,11 +200,62 @@ class Ourted extends Bot
 
 
         // Get Channel
-        $channel = $this->functions->get_channel(CHANNEL_ID);
+        $channel = $this->channel->getChannel(CHANNEL_ID);
 
         // Delete Messages
-        $message = $func->getMessage($channel, MESSAGE_ID);
-        $func->deleteMessage($message);
+        $message = $this->channel->getMessage($channel, MESSAGE_ID);
+        $this->channel->deleteMessage($message);
+
+
+        $this->run();
+    }
+}
+
+new Ourted();
+?>
+````
+
+Delete Bulk Message
+---
+
+````php
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Dotenv\Dotenv;
+use Ourted\Bot;
+
+class Ourted extends Bot
+{
+
+    public $token;
+
+    public function __construct()
+    {
+        $dotenv = Dotenv::createImmutable(__DIR__);
+        $dotenv->load();
+        $this->token = $_ENV['BOT_TOKEN'];
+        parent::__construct($this->token, '!');
+        $this->setBot();
+    }
+
+    public function setBot()
+    {
+        // Channel
+        $channel = $this->channel->getChannel(CHANNEL_ID);
+
+        $ids = "";
+        // Count Messages
+        foreach (json_decode($this->channel->getMessages($channel)) as $key => $item) {
+            if($key == 99){
+                return;
+            }
+            count(json_decode($this->channel->getMessages($channel))) -1 == $key?
+                $ids .= "\"$item->id\"" : $ids.= "\"$item->id\",";
+        }
+        // Delete Messages
+        $this->channel->deleteBulkMessage("[{$ids}]", $channel);
 
 
         $this->run();
