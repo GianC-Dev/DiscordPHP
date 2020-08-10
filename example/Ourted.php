@@ -46,7 +46,7 @@ class Ourted extends Bot
         /* Embed Start */
         $embed_array = array();
         $embed_string = "";
-        foreach (json_decode($this->guild->get_guilds_properties()) as $key => $server) {
+        foreach ($this->guild->get_guilds_properties() as $key => $server) {
             $embed_array[] = array("name" => "Server of {$key}.", "value" => $server->name);
             $embed_string .= " Server of {$key}: {$server->name} ";
         }
@@ -72,9 +72,9 @@ class Ourted extends Bot
         /* Bulk Delete Start */
         $ids = "";
         // Count Messages
-        foreach (json_decode($this->channel->getMessages($channel)) as $key => $item) {
+        foreach ($this->channel->getMessages($channel) as $key => $item) {
             if($key == 99){
-                return;
+                break;
             }
             count(json_decode($this->channel->getMessages($channel))) -1 == $key?
                 $ids .= "\"$item->id\"" : $ids.= "\"$item->id\",";

@@ -42,7 +42,7 @@ class State
     /**
      * @var bool
      */
-    public $send_log = false;
+    public $send_log = true;
 
     /**
      * Discord API operations to class relationships

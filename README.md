@@ -247,11 +247,11 @@ class Ourted extends Bot
 
         $ids = "";
         // Count Messages
-        foreach (json_decode($this->channel->getMessages($channel)) as $key => $item) {
+        foreach ($this->channel->getMessages($channel) as $key => $item) {
             if($key == 99){
                 return;
             }
-            count(json_decode($this->channel->getMessages($channel))) -1 == $key?
+            count($this->channel->getMessages($channel)) -1 == $key?
                 $ids .= "\"$item->id\"" : $ids.= "\"$item->id\",";
         }
         // Delete Messages

@@ -51,30 +51,30 @@ class Channel{
     /**
      * Deleting Message
      *
-     * @return bool|string
+     * @return bool|array
      * @var string $message
      * @var \Ourted\Model\Channel\Channel $channel
      */
 
     public function deleteBulkMessage($message, $channel)
     {
-        return $this->bot->api->init_curl_with_header(
+        return json_decode($this->bot->api->init_curl_with_header(
             "channels/{$channel->id}/messages/bulk-delete",
-            "{\"messages\":{$message}}", "POST");
+            "{\"messages\":{$message}}", "POST"));
     }
 
     /**
      * Getting Messages in Selected Channel
      *
-     * @return bool|string
+     * @return bool|array
      * @var \Ourted\Model\Channel\Channel $channel Channel Instance
      */
 
     public function getMessages($channel)
     {
-        return $this->bot->api->init_curl_with_header(
+        return json_decode($this->bot->api->init_curl_with_header(
             "channels/{$channel->id}/messages",
-            "", "GET");
+            "", "GET"));
     }
 
     /**

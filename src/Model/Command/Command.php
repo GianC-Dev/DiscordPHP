@@ -15,6 +15,12 @@ abstract class Command
     protected $bot;
 
     /**
+     * Current bot instance
+     * @var stdClass $json
+     */
+    protected $json;
+
+    /**
      * Curernt loop instance
      * @var EventLoop\
      */
@@ -30,10 +36,17 @@ abstract class Command
     public function __construct($bot, $command_name)
     {
         $bot->addDispatch('MESSAGE_CREATE', $command_name, function ($json) use ($command_name, $bot) {
+            $this->json = $json->d;
             if (str_starts_with($json->d->content, $bot->prefix . $command_name)) {
                 $this->execute($json->d, $bot);
             }
         });
+    }
+
+    protected function getArgs(){
+        $result = explode(" ", $this->json->content);
+        unset($result[0]);
+        return $result;
     }
 
     /**
