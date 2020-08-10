@@ -97,19 +97,19 @@ class Ourted extends Bot
 class EventListener extends \Ourted\Interfaces\EventListener
 {
 
-    public function onMessageCreate($message, $bot)
+    public function onMessageCreate($json, $bot)
     {
         /* 
-        Content: $message->content
-        Author Username: $message->author->username
-        Author Discriminator: $message->author->discriminator
-        Author ID: $message->author->id
+        Content: $json->content
+        Author Username: $json->author->username
+        Author Discriminator: $json->author->discriminator
+        Author ID: $json->author->id
         */
 
-        if(isset($message->author->bot)){
+        if(isset($json->author->bot)){
             return;
         }
-        $this->channel->sendMessage("Message Sent! By: <@{$message->author->id}>, Content: {$message->content}", $message->channel_id);
+        $this->channel->sendMessage("Message Sent! By: <@{$json->author->id}>, Content: {$json->content}", $json->channel_id);
     }
 
 
