@@ -97,19 +97,19 @@ class Ourted extends Bot
 class EventListener extends \Ourted\Interfaces\EventListener
 {
 
-    public function onMessageCreate($json, $bot)
+    public function onMessageCreate($message, $bot)
     {
         /* 
-        Content: $json->content
-        Author Username: $json->author->username
-        Author Discriminator: $json->author->discriminator
-        Author ID: $json->author->id
+        Content: $message->content
+        Author Username: $message->author->username
+        Author Discriminator: $message->author->discriminator
+        Author ID: $message->author->id
         */
 
-        if(isset($json->author->bot)){
+        if(isset($message->author->bot)){
             return;
         }
-        $this->channel->sendMessage("Message Sent! By: <@{$json->author->id}>, Content: {$json->content}", $json->channel_id);
+        $this->channel->sendMessage("Message Sent! By: <@{$message->author->id}>, Content: {$message->content}", $message->channel_id);
     }
 
 
@@ -156,8 +156,8 @@ class Ourted extends Bot
 }
 class TestCommand extends Command{
 
-    public function execute($json, $bot){
-        $bot->channel->sendMessage("Command Used! Command: {$json->content}", $json->channel_id);
+    public function execute($message, $bot){
+        $bot->channel->sendMessage("Command Used! Command: {$message->content}", $message->channel_id);
     }
 }
 

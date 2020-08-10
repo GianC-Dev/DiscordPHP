@@ -38,7 +38,7 @@ class Channel{
      * Deleting Message
      *
      * @return bool|string
-     * @var Message $message
+     * @var Message|stdClass $message
      */
 
     public function deleteMessage($message)

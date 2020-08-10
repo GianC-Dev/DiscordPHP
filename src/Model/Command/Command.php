@@ -52,9 +52,9 @@ abstract class Command
     /**
      * Execute
      *
-     * @param stdClass $json
+     * @param stdClass $message
      * @param Bot $bot
      *
      */
-    public abstract function execute($json, $bot);
+    public abstract function execute($message, $bot);
 }
