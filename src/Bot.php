@@ -6,6 +6,7 @@ use Closure;
 use Exception;
 use Ourted\Interfaces\Channel;
 use Ourted\Interfaces\Guild;
+use Ourted\Interfaces\Role;
 use Ourted\Interfaces\User;
 use Ourted\Utils\API;
 use Ratchet\Client\Connector;
@@ -93,8 +94,11 @@ class Bot
     /** @var Guild */
     public $guild;
 
-    /** @var Guild */
+    /** @var User */
     public $user;
+
+    /** @var Role */
+    public $role;
 
     /* Finish Classes */
 
@@ -141,6 +145,7 @@ class Bot
         $this->guild = new Guild($this);
         $this->user = new User($this);
         $this->api = new API($this);
+        $this->role = new Role($this);
 
         $this->loop = Factory::create();
         $this->init();

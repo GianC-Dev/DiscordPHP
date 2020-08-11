@@ -28,4 +28,8 @@ class Guild{
             "", "GET"));
     }
 
+    public function getGuild($id){
+        return new \Ourted\Model\Guild\Guild($this->bot, $id);
+    }
+
 }

@@ -266,5 +266,103 @@ new Ourted();
 ?>
 ````
 
+Add Role
+---
+
+````php
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Dotenv\Dotenv;
+use Ourted\Bot;
+
+class Ourted extends Bot
+{
+
+    public $token;
+
+    public function __construct()
+    {
+        $dotenv = Dotenv::createImmutable(__DIR__);
+        $dotenv->load();
+        $this->token = $_ENV['BOT_TOKEN'];
+        parent::__construct($this->token, '!');
+        $this->setBot();
+    }
+
+    public function setBot()
+    {
+        // Channel
+        $channel = $this->channel->getChannel(CHANNEL_ID);
+
+    // Guild: $this->guild->getGuild(742361616728719373)
+    // Name: "Test"
+    // Color: 80 (blue)
+    // Mentionable: true
+    // hoist: true
+
+        $this->role->addRole($this->guild->getGuild(742361616728719373), "Test", 80, true, true);
+
+
+        $this->run();
+    }
+}
+
+new Ourted();
+?>
+````
+
+Get Role
+---
+
+````php
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Dotenv\Dotenv;
+use Ourted\Bot;
+
+class Ourted extends Bot
+{
+
+    public $token;
+
+    public function __construct()
+    {
+        $dotenv = Dotenv::createImmutable(__DIR__);
+        $dotenv->load();
+        $this->token = $_ENV['BOT_TOKEN'];
+        parent::__construct($this->token, '!');
+        $this->setBot();
+    }
+
+    public function setBot()
+    {
+        // Channel
+        $channel = $this->channel->getChannel(CHANNEL_ID);
+
+    // ->id 
+    // ->name
+    // ->color
+    // ->hoist
+    // ->position
+    // ->permissions
+    // ->permissions_new
+    // ->managed
+    // ->mentionable
+
+     echo $this->role->getRole($this->guild->getGuild(742361616728719373), 742404691979272203)->name;
+
+
+
+        $this->run();
+    }
+}
+
+new Ourted();
+?>
+````
 
 
