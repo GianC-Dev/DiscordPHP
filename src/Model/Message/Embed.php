@@ -13,7 +13,6 @@ class Embed
     protected $token;
     private $embed = [];
     private $fields = [];
-    private $fields_arr = [];
 
 
     /**
@@ -33,18 +32,14 @@ class Embed
 
 
     /**
-     * @var array $field Fields In Array
+     * @var string $name Fields In Array
+     * @var string $value Fields In Array
      *
      */
 
-    public function add_field(array ...$field)
+    public function add_field(string $name, string $value)
     {
-        if(isset($field[0][0])){
-            $this->fields[] = $field;
-        }else{
-            $this->fields_arr[] = $field;
-        }
-
+        $this->fields[] = array("name" => "{$name}", "value" => "{$value}");
     }
 
     /**
@@ -55,6 +50,15 @@ class Embed
     private function get_fields()
     {
         $data = "";
+        foreach ($this->fields as $key => $item){
+            $count_field = count($this->fields);
+            $data .= $count_field -1 == $key ?
+                // If
+                "{\"name\":\"{$item["name"]}\",\"value\":\"{$item["value"]}\"}" :
+                // If Not
+                "{\"name\":\"{$item["name"]}\",\"value\":\"{$item["value"]}\"},";
+        }
+        /*
         if (!isset($this->fields[0][0][0])){
             if(!isset($this->fields_arr[0])){
                 return "";
@@ -77,6 +81,7 @@ class Embed
                     "{\"name\":\"{$item["name"]}\",\"value\":\"{$item["value"]}\"},";
             }
         }
+        */
         return $data;
     }
 

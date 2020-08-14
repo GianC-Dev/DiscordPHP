@@ -11,7 +11,7 @@ class Ourted extends Bot
 
     public function __construct()
     {
-        $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+        $dotenv = Dotenv::createImmutable(__DIR__);
         $dotenv->load();
         $this->token = $_ENV['BOT_TOKEN'];
         parent::__construct($this->token, "!");
@@ -42,33 +42,22 @@ class Ourted extends Bot
         // Change Bot Username
         $settings->change_bot_username("test_bot");
 
+
+
         /* Embed Start */
-        $embed_array = array();
-        $embed_string = "";
-        foreach ($this->guild->get_guilds_properties() as $key => $server) {
-            $embed_array[] = array("name" => "Server of {$key}.", "value" => $server->name);
-            $embed_string .= " Server of {$key}: {$server->name} ";
-        }
 
 
-        // Without Embed
-        $this->channel->sendMessage("Family: " . $embed_string, $channel);
-
-
-        // With Single Array
-        $embed = $this->createEmbed("Family", $channel, "Family");
-        $embed->add_field($embed_array);
-        $embed->send_embed();
-
-
-        // With Multiple Array
-        $embed = $this->createEmbed("Family", $channel, "Family");
-        $embed->add_field(array("name" => "Field 1", "value" => "Field 1 Value"), array("name" => "Field 2", "value" => "Field 2 Value"));
+        $embed = $this->createEmbed("TITLE", $channel, "DESCIPTION");
+        $embed->add_field("Field 1", "Field 1 Value");
+        $embed->add_field("Field 2", "Field 2 Value");
         $embed->send_embed();
 
         /* Embed End */
 
+
+
         /* Bulk Delete Start */
+
         $ids = "";
         // Count Messages
         foreach ($this->channel->getMessages($channel) as $key => $item) {
@@ -78,8 +67,10 @@ class Ourted extends Bot
             count(json_decode($this->channel->getMessages($channel))) -1 == $key?
                 $ids .= "\"$item->id\"" : $ids.= "\"$item->id\",";
         }
-        // Delete Messages
+        // Delete Bulk Message
         $this->channel->deleteBulkMessage("[{$ids}]", $channel);
+
+        /* Bulk Delete End */
 
         // Get Role
         echo $this->guild->getRole($this->guild->getGuild(742361616728719373), 742404691979272203)->name;
