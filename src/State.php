@@ -159,10 +159,10 @@ class State
      */
     public function action($json, $loop)
     {
-        //State::log('Incoming: '.print_r($json, true));
-
         $op = $json->op;
-
+        if(!isset($this->ops[$op])){
+            return;
+        }
         $commandNs = '\\Ourted\\Ops\\'.$this->ops[$op];
         $command = new $commandNs($this, $loop);
         $command->execute($json);
