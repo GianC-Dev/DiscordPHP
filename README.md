@@ -96,6 +96,81 @@ class Ourted extends Bot
 
 class EventListener extends \Ourted\Interfaces\EventListener
 {
+ # Guild
+    public function onGuildJoin($json, $bot)
+    {
+
+    }
+
+    public function onGuildUpdate($json, $bot)
+    {
+
+    }
+
+    public function onGuildDelete($json, $bot)
+    {
+
+    }
+
+    # Member
+    public function onGuildMemberAdd($json, $bot)
+    {
+
+    }
+
+    public function onGuildMemberUpdate($json, $bot)
+    {
+
+    }
+
+    public function onGuildMemberDelete($json, $bot)
+    {
+
+    }
+
+    # Channel
+    public function onChannelCreate($json, $bot)
+    {
+
+    }
+
+    public function onChannelUpdate($json, $bot)
+    {
+
+    }
+
+    public function onChannelDelete($json, $bot)
+    {
+
+    }
+
+    public function onChannelPinsUpdate($json, $bot)
+    {
+
+    }
+
+
+
+
+
+
+    # Role
+    public function onGuildRoleCreate($json, $bot)
+    {
+
+    }
+
+    public function onGuildRoleUpdate($json, $bot)
+    {
+
+    }
+
+    public function onGuildRoleDelete($json, $bot)
+    {
+
+    }
+
+    #Message
 
     public function onMessageCreate($json, $bot)
     {

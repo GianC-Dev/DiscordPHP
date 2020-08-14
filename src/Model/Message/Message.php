@@ -5,7 +5,7 @@ namespace Ourted\Model\Message;
 use Ourted\Bot;
 use Ourted\Model\Channel\Channel;
 
-class Message
+class Message extends \stdClass
 {
     public $id;
     public $reactions = [];
@@ -24,6 +24,7 @@ class Message
     public $type;
     public $flags;
     public $message_reference = [];
+    public $guild_id = [];
 
 
     /**
@@ -53,6 +54,7 @@ class Message
         $this->mention_roles = $result->mentioned_roles ?? null;
         $this->mentions = $result->mentions ?? null;
         $this->message_reference = $result->message_reference ?? null;
+        $this->guild_id = $result->guild_id ?? null;
         return $this;
     }
 }
