@@ -35,12 +35,11 @@ class Embed
      *
      * @param string $name
      * @param string $value
-     * @param bool $inline
      */
 
-    public function add_field(string $name, string $value, bool $inline = false)
+    public function add_field(string $name, string $value)
     {
-        $this->fields[] = array("name" => "{$name}", "value" => "{$value}", "inline" => $inline);
+        $this->fields[] = array("name" => "{$name}", "value" => "{$value}");
     }
 
     /**
@@ -55,9 +54,9 @@ class Embed
             $count_field = count($this->fields);
             $data .= $count_field -1 == $key ?
                 // If
-                "{\"name\":\"{$item["name"]}\",\"value\":\"{$item["value"]}\",\"inline\":{$item["inline"]}}" :
+                "{\"name\":\"{$item["name"]}\",\"value\":\"{$item["value"]}\"}" :
                 // If Not
-                "{\"name\":\"{$item["name"]}\",\"value\":\"{$item["value"]}\",\"inline\":{$item["inline"]}},";
+                "{\"name\":\"{$item["name"]}\",\"value\":\"{$item["value"]}\"},";
         }
         return $data;
     }
