@@ -35,10 +35,11 @@ abstract class Command
      */
     public function __construct($bot, $command_name)
     {
+        $this->bot = $bot;
         $bot->addDispatch('MESSAGE_CREATE', function ($json) use ($command_name, $bot) {
             $this->json = $json->d;
             if (str_starts_with($json->d->content, $bot->prefix . $command_name)) {
-                $res = $this->execute($this->bot->channel->getMessage($this->bot->channel->getChannel($json->d->channel_id), intval($json->d->id)), $bot);
+                $res = $this->execute($this->bot->channel->getMessage($bot->channel->getChannel($json->d->channel_id), intval($json->d->id)), $bot);
                 if(isset(json_decode($res)->message)){
                     $this->onFail(json_decode($res)->message, $this->bot);
                 }
