@@ -58,30 +58,6 @@ class Embed
                 // If Not
                 "{\"name\":\"{$item["name"]}\",\"value\":\"{$item["value"]}\"},";
         }
-        /*
-        if (!isset($this->fields[0][0][0])){
-            if(!isset($this->fields_arr[0])){
-                return "";
-            }
-            foreach ($this->fields_arr[0] as $key => $item) {
-                $toplam_field = count($this->fields_arr);
-                $data .= $toplam_field == $key ?
-                    // If
-                    "{\"name\":\"{$item["name"]}\",\"value\":\"{$item["value"]}\"}" :
-                    // If Not
-                    "{\"name\":\"{$item["name"]}\",\"value\":\"{$item["value"]}\"},";
-            }
-        }else {
-            foreach ($this->fields[0][0] as $key => $item) {
-                $toplam_field = count($this->fields[0][0][0]);
-                $data .= $toplam_field - 1 == $key ?
-                    // If
-                    "{\"name\":\"{$item["name"]}\",\"value\":\"{$item["value"]}\"}" :
-                    // If Not
-                    "{\"name\":\"{$item["name"]}\",\"value\":\"{$item["value"]}\"},";
-            }
-        }
-        */
         return $data;
     }
 

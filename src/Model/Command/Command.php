@@ -2,6 +2,7 @@
 
 namespace Ourted\Model\Command;
 
+use Ourted\Model\Message\Message;
 use React\EventLoop;
 use Ourted\Bot;
 use stdClass;
@@ -53,7 +54,7 @@ abstract class Command
     /**
      * Execute
      *
-     * @param stdClass $message
+     * @param Message $message
      * @param Bot $bot
      *
      */
