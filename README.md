@@ -302,7 +302,7 @@ class Ourted extends Bot
     // Mentionable: true
     // hoist: true
 
-        $this->role->addRole($this->guild->getGuild(742361616728719373), "Test", 80, true, true);
+        $this->guild->addRole($this->guild->getGuild(742361616728719373), "Test", 80, true, true);
 
 
         $this->run();
@@ -353,7 +353,7 @@ class Ourted extends Bot
     // ->managed
     // ->mentionable
 
-     echo $this->role->getRole($this->guild->getGuild(742361616728719373), 742404691979272203)->name;
+     echo $this->guild->getRole($this->guild->getGuild(742361616728719373), 742404691979272203)->name;
 
 
 

@@ -83,14 +83,14 @@ class Ourted extends Bot
         $this->channel->deleteBulkMessage("[{$ids}]", $channel);
 
         // Get Role
-        echo $this->role->getRole($this->guild->getGuild(742361616728719373), 742404691979272203)->name;
+        echo $this->guild->getRole($this->guild->getGuild(742361616728719373), 742404691979272203)->name;
         // Result: Test
 
         // Get Roles
-        print_r($this->role->getRoles($this->guild->getGuild(742361616728719373)));
+        print_r($this->guild->getRoles($this->guild->getGuild(742361616728719373)));
 
         // Add Role
-        $this->role->addRole($this->guild->getGuild(742361616728719373), "Test", 80, true, true);
+        $this->guild->addRole($this->guild->getGuild(742361616728719373), "Test", 80, true, true);
 
         parent::run();
 
