@@ -7,6 +7,7 @@ use Exception;
 use Ourted\Interfaces\Channel;
 use Ourted\Interfaces\Guild;
 use Ourted\Interfaces\User;
+use Ourted\Model\Message\Embed;
 use Ourted\Utils\API;
 use Ratchet\Client\Connector;
 use Ratchet\Client\WebSocket;
@@ -126,6 +127,15 @@ class Bot
     public function addCommand($command_name, $function)
     {
         $function($this, $command_name);
+    }
+
+    /**
+     * @param $title
+     * @param \Ourted\Model\Channel\Channel $channel
+     * @param string $description
+     */
+    public function createEmbed($title, $channel, $description = ""){
+        return new Embed($title, $this, $channel, $description);
     }
 
     /**

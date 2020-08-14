@@ -39,10 +39,7 @@ abstract class Command
         $bot->addDispatch('MESSAGE_CREATE', function ($json) use ($command_name, $bot) {
             $this->json = $json->d;
             if (str_starts_with($json->d->content, $bot->prefix . $command_name)) {
-                $res = $this->execute($this->bot->channel->getMessage($bot->channel->getChannel($json->d->channel_id), intval($json->d->id)), $bot);
-                if(isset(json_decode($res)->message)){
-                    $this->onFail(json_decode($res)->message, $this->bot);
-                }
+                $this->execute($this->bot->channel->getMessage($bot->channel->getChannel($json->d->channel_id), intval($json->d->id)), $bot);
             }
         });
     }
@@ -61,16 +58,4 @@ abstract class Command
      *
      */
     public abstract function execute($message, $bot);
-
-    /**
-     * On Fail
-     *
-     * @param string $fail
-     * @param Bot $bot
-     *
-     */
-    public function onFail($fail, $bot){
-
-    }
-
 }

@@ -3,6 +3,7 @@
 namespace Ourted\Model\Message;
 
 use Ourted\Bot;
+use Ourted\Model\Channel\Channel;
 
 class Embed
 {
@@ -16,21 +17,20 @@ class Embed
 
 
     /**
-     *
-     *
      * @param $title
      * @param Bot $bot
-     * @param $channel_id
+     * @param Channel $channel
      * @param string $description
      */
-    public function __construct($title, $bot, $channel_id, $description = "")
+    public function __construct($title, $bot, $channel, $description = "")
     {
         $this->embed['title'] = $title;
         $this->embed['description'] = $description;
-        $this->embed['channel_id'] = $channel_id;
+        $this->embed['channel_id'] = $channel->id;
         $this->bot = $bot->getBot();
         $this->token = $bot->getToken();
     }
+
 
     /**
      * @var array $field Fields In Array

@@ -4,7 +4,6 @@
 
 use Dotenv\Dotenv;
 use Ourted\Bot;
-use Ourted\Model\Message\Embed;
 
 class Ourted extends Bot
 {
@@ -57,13 +56,13 @@ class Ourted extends Bot
 
 
         // With Single Array
-        $embed = new Embed("Family", parent::getBot(), "701838704095920198", "Family");
+        $embed = $this->createEmbed("Family", $channel, "Family");
         $embed->add_field($embed_array);
         $embed->send_embed();
 
 
         // With Multiple Array
-        $embed = new Embed("Family", parent::getBot(), "701838704095920198", "Family");
+        $embed = $this->createEmbed("Family", $channel, "Family");
         $embed->add_field(array("name" => "Field 1", "value" => "Field 1 Value"), array("name" => "Field 2", "value" => "Field 2 Value"));
         $embed->send_embed();
 
