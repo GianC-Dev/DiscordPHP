@@ -79,88 +79,141 @@ abstract class EventListener
     }
 
     # Guild
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onGuildJoin($json, $bot)
     {
 
     }
 
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onGuildUpdate($json, $bot)
     {
 
     }
 
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onGuildDelete($json, $bot)
     {
 
     }
 
     # Member
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onGuildMemberAdd($json, $bot)
     {
 
     }
 
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onGuildMemberUpdate($json, $bot)
     {
 
     }
 
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onGuildMemberDelete($json, $bot)
     {
 
     }
 
     # Channel
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onChannelCreate($json, $bot)
     {
 
     }
 
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onChannelUpdate($json, $bot)
     {
 
     }
 
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onChannelDelete($json, $bot)
     {
 
     }
 
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onChannelPinsUpdate($json, $bot)
     {
 
     }
 
-
-
-
-
-
     # Role
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onGuildRoleCreate($json, $bot)
     {
 
     }
 
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onGuildRoleUpdate($json, $bot)
     {
 
     }
 
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onGuildRoleDelete($json, $bot)
     {
 
     }
 
-
     # Message
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onMessageCreate($json, $bot)
     {
 
     }
 
-
     # Bot
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onReady($json, $bot)
     {
 
