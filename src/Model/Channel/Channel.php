@@ -32,17 +32,17 @@ class Channel
             "channels/{$channel_id}",
             "", "GET");
         $json = json_decode($result);
-        $this->id = $json->id;
-        $this->last_message_id = $json->last_message_id;
-        $this->type = $json->type;
-        $this->name = $json->name;
-        $this->position = $json->position;
-        $this->parent_id = $json->parent_id;
-        $this->topic = $json->topic;
-        $this->guild_id = $json->guild_id;
-        $this->nsfw = $json->nsfw;
-        $this->permission_overwrites = $json->permission_overwrites;
-        $this->rate_limit_per_user = $json->rate_limit_per_user;
+        $this->id = $json->id ?? null;
+        $this->last_message_id = $json->last_message_id ?? null;
+        $this->type = $json->type ?? null;
+        $this->name = $json->name ?? null;
+        $this->position = $json->position ?? null;
+        $this->parent_id = $json->parent_id ?? null;
+        $this->topic = $json->topic ?? null;
+        $this->guild_id = $json->guild_id ?? null;
+        $this->nsfw = $json->nsfw ?? null;
+        $this->permission_overwrites = $json->permission_overwrites ?? null;
+        $this->rate_limit_per_user = $json->rate_limit_per_user ?? null;
         return $this;
     }
 
