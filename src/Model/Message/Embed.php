@@ -57,8 +57,7 @@ class Embed
         $data = "";
         if (!isset($this->fields[0][0][0])){
             if(!isset($this->fields_arr[0])){
-                $data .= "{}";
-                return $data;
+                return "";
             }
             foreach ($this->fields_arr[0] as $key => $item) {
                 $toplam_field = count($this->fields_arr);
