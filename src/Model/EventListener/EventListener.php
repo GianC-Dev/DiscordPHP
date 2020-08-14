@@ -21,15 +21,6 @@ abstract class EventListener
      */
     public $token;
 
-    private function generateRandomString($length = 10) {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $randomString;
-    }
 
     /**
      *
@@ -39,50 +30,50 @@ abstract class EventListener
     {
         $this->bot = $bot;
         $this->token = $bot->getToken();
-        $bot->addDispatch('GUILD_CREATE',$this->generateRandomString(), function ($json) {
+        $bot->addDispatch('GUILD_CREATE', function ($json) {
             $this->onGuildJoin($json->d, $this->bot);
         });
-        $bot->addDispatch('GUILD_MEMBER_ADD',$this->generateRandomString(), function ($json) {
+        $bot->addDispatch('GUILD_MEMBER_ADD', function ($json) {
             $this->onGuildMemberAdd($json->d, $this->bot);
         });
-        $bot->addDispatch('GUILD_MEMBER_UPDATE',$this->generateRandomString(), function ($json) {
+        $bot->addDispatch('GUILD_MEMBER_UPDATE', function ($json) {
             $this->onGuildMemberUpdate($json->d, $this->bot);
         });
-        $bot->addDispatch('GUILD_MEMBER_DELETE',$this->generateRandomString(), function ($json) {
+        $bot->addDispatch('GUILD_MEMBER_DELETE', function ($json) {
             $this->onGuildMemberDelete($json->d, $this->bot);
         });
-        $bot->addDispatch('GUILD_UPDATE',$this->generateRandomString(), function ($json) {
+        $bot->addDispatch('GUILD_UPDATE', function ($json) {
             $this->onGuildDelete($json->d, $this->bot);
         });
-        $bot->addDispatch('GUILD_DELETE',$this->generateRandomString(), function ($json) {
+        $bot->addDispatch('GUILD_DELETE', function ($json) {
             $this->onGuildUpdate($json->d, $this->bot);
         });
-        $bot->addDispatch('GUILD_ROLE_CREATE',$this->generateRandomString(), function ($json) {
+        $bot->addDispatch('GUILD_ROLE_CREATE', function ($json) {
             $this->onGuildRoleCreate($json->d, $this->bot);
         });
-        $bot->addDispatch('GUILD_ROLE_UPDATE',$this->generateRandomString(), function ($json) {
+        $bot->addDispatch('GUILD_ROLE_UPDATE', function ($json) {
             $this->onGuildRoleUpdate($json->d, $this->bot);
         });
-        $bot->addDispatch('GUILD_ROLE_DELETE',$this->generateRandomString(), function ($json) {
+        $bot->addDispatch('GUILD_ROLE_DELETE', function ($json) {
             $this->onGuildRoleDelete($json->d, $this->bot);
         });
-        $bot->addDispatch('MESSAGE_CREATE',$this->generateRandomString(), function ($json) {
+        $bot->addDispatch('MESSAGE_CREATE', function ($json) {
             $this->onMessageCreate($json->d, $this->bot);
         });
-        $bot->addDispatch('CHANNEL_CREATE',$this->generateRandomString(), function ($json) {
+        $bot->addDispatch('CHANNEL_CREATE', function ($json) {
             $this->onChannelCreate($json->d, $this->bot);
         });
-        $bot->addDispatch('CHANNEL_UPDATE',$this->generateRandomString(), function ($json) {
+        $bot->addDispatch('CHANNEL_UPDATE', function ($json) {
             $this->onChannelUpdate($json->d, $this->bot);
         });
-        $bot->addDispatch('CHANNEL_DELETE',$this->generateRandomString(), function ($json) {
+        $bot->addDispatch('CHANNEL_DELETE', function ($json) {
             $this->onChannelDelete($json->d, $this->bot);
         });
-        $bot->addDispatch('CHANNEL_PINS_UPDATE',$this->generateRandomString(), function ($json) {
+        $bot->addDispatch('CHANNEL_PINS_UPDATE', function ($json) {
             $this->onChannelPinsUpdate($json->d, $this->bot);
         });
 
-        $bot->addDispatch('READY',$this->generateRandomString(), function ($json) {
+        $bot->addDispatch('READY', function ($json) {
             $this->onReady($json->d, $this->bot);
         });
     }

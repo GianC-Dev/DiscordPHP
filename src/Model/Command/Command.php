@@ -35,7 +35,7 @@ abstract class Command
      */
     public function __construct($bot, $command_name)
     {
-        $bot->addDispatch('MESSAGE_CREATE', $command_name, function ($json) use ($command_name, $bot) {
+        $bot->addDispatch('MESSAGE_CREATE', function ($json) use ($command_name, $bot) {
             $this->json = $json->d;
             if (str_starts_with($json->d->content, $bot->prefix . $command_name)) {
                 $res = $this->execute($json->d, $bot);

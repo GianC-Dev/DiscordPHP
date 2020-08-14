@@ -105,7 +105,7 @@ class Bot
      * @param string $callback_name Dispatch name
      * @param string|Callable $callback Callback to execute when dispatching action
      */
-    public function addDispatch($type, $callback_name, $callback)
+    public function addDispatch($type, $callback)
     {
 
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-*."é~,;<>';
