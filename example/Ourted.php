@@ -46,10 +46,13 @@ class Ourted extends Bot
 
         /* Embed Start */
 
-
+        // Create Embed
         $embed = $this->createEmbed("TITLE", $channel, "DESCIPTION");
+        // Without Inline
         $embed->add_field("Field 1", "Field 1 Value");
-        $embed->add_field("Field 2", "Field 2 Value");
+        // With Inline
+        $embed->add_field("Field 2", "Field 2 Value", true);
+        // Send
         $embed->send_embed();
 
         /* Embed End */
