@@ -107,7 +107,14 @@ class Bot
      */
     public function addDispatch($type, $callback_name, $callback)
     {
-        $this->dispatch[$type][$callback_name] = $callback;
+
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-*."é~,;<>';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < 40; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        $this->dispatch[$type][$randomString] = $callback;
     }
 
     /**
