@@ -52,6 +52,7 @@ class State
         0 => 'Dispatch',
         1 => 'Hello',
         2 => 'Identify',
+        3 => 'Presence',
         10 => 'Hello',
         11 => 'Heartbeatack'
     ];
@@ -163,6 +164,7 @@ class State
         if(!isset($this->ops[$op])){
             return;
         }
+
         $commandNs = '\\Ourted\\Ops\\'.$this->ops[$op];
         $command = new $commandNs($this, $loop);
         $command->execute($json);

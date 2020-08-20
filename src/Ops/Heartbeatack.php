@@ -2,12 +2,14 @@
 
 namespace Ourted\Ops;
 
-class Heartbeatack extends \Ourted\Model\Op\Op
+use Ourted\Model\Op\Op;
+use Ourted\State;
+
+class Heartbeatack extends Op
 {
     public function execute($json)
     {
         $this->bot->send_log ?
-            \Ourted\State::log('Execute: HEARTBEAT-ACK') : null;
-        // Nothing to see...
+            State::log('Execute: HEARTBEAT-ACK') : null;
     }
 }

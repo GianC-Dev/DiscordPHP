@@ -3,7 +3,6 @@
 namespace Ourted\Model\Role;
 
 use Ourted\Bot;
-use Ourted\Interfaces\Guild;
 
 class Role
 {
@@ -43,5 +42,9 @@ class Role
         $this->managed = $json->managed ?? null;
         $this->mentionable = $json->mentionable ?? null;
         return $this;
+    }
+
+    public function isNull(){
+        return $this->id == null;
     }
 }

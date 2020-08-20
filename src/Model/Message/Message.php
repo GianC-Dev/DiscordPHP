@@ -4,8 +4,9 @@ namespace Ourted\Model\Message;
 
 use Ourted\Bot;
 use Ourted\Model\Channel\Channel;
+use stdClass;
 
-class Message extends \stdClass
+class Message extends stdClass
 {
     public $id;
     public $reactions = [];
@@ -56,5 +57,9 @@ class Message extends \stdClass
         $this->message_reference = $result->message_reference ?? null;
         $this->guild_id = $result->guild_id ?? null;
         return $this;
+    }
+
+    public function isNull(){
+        return $this->id == null;
     }
 }

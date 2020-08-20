@@ -37,4 +37,8 @@ class User
         return $this;
     }
 
+    public function isNull(){
+        return $this->id == null;
+    }
+
 }
