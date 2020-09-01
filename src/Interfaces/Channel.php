@@ -90,5 +90,14 @@ class Channel{
         return new Message($this->bot, $message_id, $channel);
     }
 
+    /**
+     *
+     * @param $channel \Ourted\Model\Channel\Channel
+     * @return mixed
+     */
+    public function deleteChannel($channel){
+        return json_decode($this->bot->api->init_curl_with_header("/channels/{$channel->id}","", "DELETE"));
+    }
+
 
 }
