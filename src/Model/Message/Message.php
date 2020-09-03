@@ -4,9 +4,8 @@ namespace Ourted\Model\Message;
 
 use Ourted\Bot;
 use Ourted\Model\Channel\Channel;
-use stdClass;
 
-class Message extends stdClass
+class Message
 {
     public $id;
     public $reactions = [];
@@ -25,7 +24,7 @@ class Message extends stdClass
     public $type;
     public $flags;
     public $message_reference = [];
-    public $guild_id = [];
+    public $guild_id;
 
 
     /**
@@ -38,7 +37,6 @@ class Message extends stdClass
         $result = json_decode($bot->api->init_curl_with_header(
             "channels/{$channel->id}/messages/{$message_id}",
             "", "GET"));
-
         $this->id = $result->id ?? null;
         $this->reactions = $result->reactions ?? null;
         $this->attachments = $result->attachments ?? null;
@@ -55,7 +53,7 @@ class Message extends stdClass
         $this->mention_roles = $result->mentioned_roles ?? null;
         $this->mentions = $result->mentions ?? null;
         $this->message_reference = $result->message_reference ?? null;
-        $this->guild_id = $result->guild_id ?? null;
+        $this->guild_id = $channel->guild_id ?? null;
         return $this;
     }
 

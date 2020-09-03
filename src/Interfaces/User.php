@@ -27,24 +27,15 @@ class User{
     }
 
     /**
-     * @param \Ourted\Model\Guild\Guild $guild
-     * @param string $nickname
-     * @param \Ourted\Model\User\User $user
-     *
+     * @param int|string $guild_id
+     * @return \Ourted\Model\User\User User Instance
      */
-    public function setNickname($guild, $user, $nickname){
-        return json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/members/{$user->id}","{\"nick\":\"{$nickname}\"}", "PATCH"));
+
+    public function leave($guild_id)
+    {
+        return json_decode($this->bot->api->init_curl_with_header("users/@me/guilds/{$guild_id}", "", "GET"));
     }
 
-    /**
-     * @param \Ourted\Model\Guild\Guild $guild
-     * @param bool $mute
-     * @param \Ourted\Model\User\User $user
-     *
-     */
-    public function setMute($guild, $user, $mute){
-        return json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/members/{$user->id}","{\"mute\":{$mute}}", "PATCH"));
-    }
 
 
 

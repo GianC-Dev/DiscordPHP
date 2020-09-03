@@ -4,7 +4,6 @@ namespace Ourted\Interfaces;
 
 use Ourted\Bot;
 use Ourted\Model\Message\Message;
-use stdClass;
 
 class Channel{
 
@@ -38,7 +37,7 @@ class Channel{
      * Deleting Message
      *
      * @return bool|string
-     * @var Message|stdClass $message
+     * @var Message $message
      */
 
     public function deleteMessage($message)
@@ -96,8 +95,7 @@ class Channel{
      * @return mixed
      */
     public function deleteChannel($channel){
-        return json_decode($this->bot->api->init_curl_with_header("/channels/{$channel->id}","", "DELETE"));
+        return json_decode($this->bot->api->init_curl_with_header("channels/{$channel->id}","", "DELETE"));
     }
-
 
 }

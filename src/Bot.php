@@ -6,6 +6,8 @@ use Closure;
 use Exception;
 use Ourted\Interfaces\Channel;
 use Ourted\Interfaces\Guild;
+use Ourted\Interfaces\Invite;
+use Ourted\Interfaces\Member;
 use Ourted\Interfaces\User;
 use Ourted\Model\Message\Embed;
 use Ourted\Utils\API;
@@ -17,6 +19,17 @@ use React\EventLoop\Factory;
 
 class Bot
 {
+
+    static $GUILD_TEXT = 0;
+    static $DM = 1;
+    static $GUILD_VOICE = 2;
+    static $GROUP_DM = 3;
+    static $GUILD_NEWS = 4;
+    static $GUILD_STORE = 5;
+
+
+
+
     /**
      * State
      * @var State
@@ -49,6 +62,10 @@ class Bot
     public $guild;
     /** @var User */
     public $user;
+    /** @var Member */
+    public $member;
+    /** @var Invite */
+    public $invite;
     /**
      * Default WSS URL (from the Discord API docs)
      * @var string
@@ -101,6 +118,8 @@ class Bot
         $this->token = $botToken;
         $this->settings = new Settings($this);
         $this->channel = new Channel($this);
+        $this->member = new Member($this);
+        $this->invite = new Invite($this);
         $this->guild = new Guild($this);
         $this->user = new User($this);
         $this->api = new API($this);
@@ -121,31 +140,16 @@ class Bot
             $state->addDispatch($this->dispatch);
 
 
-
-
-
-
             $conn->on('message', function (MessageInterface $msg) use ($conn, $state) {
                 $json = json_decode($msg);
                 $state->action($json, $this->loop);
             });
 
 
-
-
             $conn->on('close', function ($code = null, $reason = null) {
                 echo "Connection closed ({$code} - {$reason})\n";
                 die();
             });
-
-
-
-
-
-
-
-
-
 
 
         }, function (Exception $e) {

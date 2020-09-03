@@ -40,7 +40,7 @@ abstract class Command
         $bot->addDispatch('MESSAGE_CREATE', function ($json) use ($command_name, $bot) {
             $this->json = $json->d;
             if (str_starts_with($json->d->content, $bot->prefix . $command_name)) {
-                $this->execute($this->bot->channel->getMessage($bot->channel->getChannel($json->d->channel_id), intval($json->d->id)), $bot);
+                $this->execute($bot->channel->getMessage($bot->channel->getChannel($json->d->channel_id), $json->d->id), $bot);
             }
         });
     }
