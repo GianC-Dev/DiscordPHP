@@ -3,7 +3,7 @@
     "description":  "The Ourted library provides a discord bot process written in PHP.",
     "type":         "library",
     "require": {
-        "php": "7.*",
+        "php": ">=7.2.0",
         "ratchet/pawl": "*",
         "vlucas/phpdotenv": "*",
         "ext-json": "*",

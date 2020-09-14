@@ -20,16 +20,6 @@ use React\EventLoop\Factory;
 class Bot
 {
 
-    static $GUILD_TEXT = 0;
-    static $DM = 1;
-    static $GUILD_VOICE = 2;
-    static $GROUP_DM = 3;
-    static $GUILD_NEWS = 4;
-    static $GUILD_STORE = 5;
-
-
-
-
     /**
      * State
      * @var State
@@ -76,6 +66,11 @@ class Bot
      * @var WebSocket Instance
      */
     protected $connection;
+
+    /**
+     * @var bool
+     */
+    protected $reconnect = false;
 
 
     /* Classes */
@@ -137,6 +132,7 @@ class Bot
         $connector($this->wssUrl)->then(function (WebSocket $conn) {
             $this->connection = $conn;
             $this->state = $state = new State($conn, $this->loop, $this->token);
+            $this->state->send_log = $this->send_log;
             $state->addDispatch($this->dispatch);
 
 
@@ -147,8 +143,13 @@ class Bot
 
 
             $conn->on('close', function ($code = null, $reason = null) {
-                echo "Connection closed ({$code} - {$reason})\n";
-                die();
+                echo "\nConnection closed ({$code} - {$reason})\n";
+                if(!$this->reconnect) {
+                    die();
+                }else{
+                    $this->stop();
+                    $this->run();
+                }
             });
 
 
@@ -222,6 +223,7 @@ class Bot
     {
 
         $this->loop->run();
+        echo "Connection Started!";
     }
 
     /**
