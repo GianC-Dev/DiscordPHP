@@ -1,8 +1,10 @@
 <?php
 
-namespace Ourted\Model\Command;
+namespace Ourted\Model;
 
-use Ourted\Model\Message\Message;
+use Ourted\Model\Channel\Channel;
+use Ourted\Model\Guild\Guild;
+use Ourted\Model\Channel\Message;
 use React\EventLoop;
 use Ourted\Bot;
 use stdClass;
@@ -40,7 +42,7 @@ abstract class Command
         $bot->addDispatch('MESSAGE_CREATE', function ($json) use ($command_name, $bot) {
             $this->json = $json->d;
             if (str_starts_with($json->d->content, $bot->prefix . $command_name)) {
-                $this->execute($bot->channel->getMessage($bot->channel->getChannel($json->d->channel_id), $json->d->id), $bot);
+                $this->execute($bot->channel->getMessage($bot->channel->getChannel($json->d->channel_id), $json->d->id), $bot, $bot->channel->getChannel($json->d->channel_id), $bot->guild->getGuild($json->d->guild_id));
             }
         });
     }
@@ -56,7 +58,9 @@ abstract class Command
      *
      * @param Message $message
      * @param Bot $bot
+     * @param Channel $channel
+     * @param Guild $guild
      *
      */
-    public abstract function execute($message, $bot);
+    public abstract function execute($message, $bot, $channel, $guild);
 }

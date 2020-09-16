@@ -3,7 +3,7 @@
 namespace Ourted\Interfaces;
 
 use Ourted\Bot;
-use Ourted\Model\Message\Message;
+use Ourted\Model\Channel\Message;
 
 class Channel{
 
@@ -67,12 +67,13 @@ class Channel{
      *
      * @return bool|array
      * @var \Ourted\Model\Channel\Channel $channel Channel Instance
+     * @var int $limit
      */
 
-    public function getMessages($channel)
+    public function getMessages($channel, $limit = 50)
     {
         return json_decode($this->bot->api->init_curl_with_header(
-            "channels/{$channel->id}/messages",
+            "channels/{$channel->id}/messages?limit={$limit}",
             "", "GET"));
     }
 

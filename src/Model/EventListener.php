@@ -1,6 +1,6 @@
 <?php
 
-namespace Ourted\Model\EventListener;
+namespace Ourted\Model;
 
 use Ourted\Bot;
 
@@ -31,7 +31,7 @@ abstract class EventListener
         $this->bot = $bot;
         $this->token = $bot->getToken();
         $bot->addDispatch('GUILD_CREATE', function ($json) {
-            $this->onGuildJoin($json->d, $this->bot);
+            $this->onGuildCreate($json->d, $this->bot);
         });
         $bot->addDispatch('GUILD_MEMBER_ADD', function ($json) {
             $this->onGuildMemberAdd($json->d, $this->bot);
@@ -83,7 +83,7 @@ abstract class EventListener
      * @param mixed $json
      * @param Bot $bot
      */
-    public function onGuildJoin($json, $bot)
+    public function onGuildCreate($json, $bot)
     {
 
     }

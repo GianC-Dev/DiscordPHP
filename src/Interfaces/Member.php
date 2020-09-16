@@ -3,7 +3,7 @@
 namespace Ourted\Interfaces;
 
 use Ourted\Bot;
-use Ourted\Model\Role\Role;
+use Ourted\Model\Guild\Role;
 
 class Member
 {
@@ -47,6 +47,7 @@ class Member
      * @param bool $mute
      * @param \Ourted\Model\User\User $user
      *
+     * @return mixed
      */
     public function setMute($guild, $user, $mute)
     {

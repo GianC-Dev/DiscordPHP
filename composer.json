@@ -9,7 +9,8 @@
         "ext-json": "*",
         "react/react": "*",
         "react/event-loop": "*",
-      "ext-curl": "*"
+      "ext-curl": "*",
+      "ext-fileinfo": "*"
     },
     "license":      "GPL-3.0-or-later",
     "authors":      [
@@ -20,7 +21,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Ourted\\": "src/"
+            "Ourted\\": "src/",
+            "Atlas\\": "Atlas/src/"
         }
     }
 }

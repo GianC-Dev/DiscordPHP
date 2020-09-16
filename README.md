@@ -38,7 +38,7 @@ class Ourted extends Bot
         $dotenv = Dotenv::createImmutable(__DIR__);
         $dotenv->load();
         $this->token = $_ENV['BOT_TOKEN'];
-        parent::__construct($this->token, '!');
+        parent::__construct($this->token, '!'); /* 1: Bot Token, 2: Bot Prefix */
         $this->setBot();
     }
 
@@ -94,10 +94,10 @@ class Ourted extends Bot
     }
 }
 
-class EventListener extends \Ourted\Interfaces\EventListener
+class EventListener extends \Ourted\Model\EventListener\EventListener
 {
  # Guild
-    public function onGuildJoin($json, $bot)
+    public function onGuildCreate($json, $bot)
     {
 
     }
@@ -231,8 +231,8 @@ class Ourted extends Bot
 }
 class TestCommand extends Command{
 
-    public function execute($message, $bot){
-        $bot->channel->sendMessage("Command Used! Command: {$message->content}", $message->channel_id);
+    public function execute($message, $bot, $channel, $guild){
+        $bot->channel->sendMessage("Command Used! Command: {$message->content}", $channel);
     }
 }
 
@@ -242,6 +242,11 @@ new Ourted();
 Result:
 ---
 ![Example Command](assets/Command.PNG)
+
+
+addCommand() Parameters:
+1. Command Name
+2. a Closure to call command class
 
 ---
 
@@ -290,6 +295,9 @@ new Ourted();
 ?>
 ````
 
+First wer get channel with getChannel() function. then delete messages with channel and message id.
+
+
 Delete Bulk Message
 ---
 
@@ -322,10 +330,7 @@ class Ourted extends Bot
 
         $ids = "";
         // Count Messages
-        foreach ($this->channel->getMessages($channel) as $key => $item) {
-            if($key == 99){
-                return;
-            }
+        foreach ($this->channel->getMessages($channel, 99) as $key => $item) {
             count($this->channel->getMessages($channel)) -1 == $key?
                 $ids .= "\"$item->id\"" : $ids.= "\"$item->id\",";
         }
@@ -340,6 +345,14 @@ class Ourted extends Bot
 new Ourted();
 ?>
 ````
+
+On **getMessages()** Function must be 2 param setted 1-100 between, integer.
+
+Paramaters:
+1. Ourted\Model\Channel\Channel.php Instance
+2. Integer 
+
+
 
 Add Role
 ---

@@ -4,7 +4,7 @@ namespace Ourted\Interfaces;
 
 use Ourted\Bot;
 use Ourted\Model\Guild\Integration;
-use Ourted\Model\Role\Role;
+use Ourted\Model\Guild\Role;
 
 class Guild
 {
@@ -156,9 +156,34 @@ class Guild
      * @param bool
      * @return \Ourted\Model\Channel\Channel
      */
-    public function createChannel($guild, $channel_name, $type = 0, $topic = "", $bitrate = 0, $user_limit = 0, $rate_limit_per_user = 0, $position = 0, $parent_id = 0, $nsfw = false)
+    public function createChannel($guild, $channel_name, $type = 0, $topic = "", $bitrate = null, $user_limit = null, $rate_limit_per_user = null, $position = null, $parent_id = null)
     {
-        $result = json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/channels", "{\"name\": \"{$channel_name}\", \"type\": {$type}, \"topic\", \"{$topic}\", \"bitrate\":{$bitrate}, \"user_limit\": {$user_limit}, \"rate_limit_per_user\": {$rate_limit_per_user}, \"position\":{$position}, \"parent_id\": {$parent_id}, \"nsfw\": {$nsfw}}", "POST"));
+        $field = "";
+        $field .= "\"name\": \"$channel_name\"";
+        $field .= ",\"type\": $type";
+        $field .= ",\"topic\": \"{$topic}\"";
+        if (!is_null($bitrate)) {
+            if ($type == $this->bot->GUILD_VOICE) {
+                $field .= ",\"bitrate\":{$bitrate} ";
+            }
+        }
+        if (!is_null($user_limit)) {
+            if ($type == $this->bot->GUILD_VOICE) {
+                $field .= ",\"user_limit\": {$user_limit}";
+            }
+        }
+        if (!is_null($rate_limit_per_user)) {
+            $field .= ",\"rate_limit_per_user\": {$rate_limit_per_user}";
+        }
+        if (!is_null($position)) {
+            $field .= ",\"position\": {$position}";
+        }
+        if (!is_null($parent_id)) {
+            $field .= ",\"parent_id\": {$parent_id}";
+        }
+        $result = json_decode($this->bot->api->init_curl_with_header(
+            "guilds/{$guild->id}/channels", "
+            {{$field}}", "POST"));
         return new \Ourted\Model\Channel\Channel($this->bot, $result->id);
     }
 
@@ -167,6 +192,7 @@ class Guild
      * @param \Ourted\Model\Guild\Guild $guild
      * @param \Ourted\Model\Channel\Channel
      * @param int
+     * @return \Ourted\Model\Channel\Channel
      */
     public function changeChannelPosition($guild, $channel, $position)
     {

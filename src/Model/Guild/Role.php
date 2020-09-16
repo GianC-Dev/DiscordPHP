@@ -1,6 +1,6 @@
 <?php
 
-namespace Ourted\Model\Role;
+namespace Ourted\Model\Guild;
 
 use Ourted\Bot;
 

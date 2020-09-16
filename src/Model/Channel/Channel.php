@@ -38,9 +38,9 @@ class Channel
         $this->name = $json->name ?? null;
         $this->position = $json->position ?? null;
         $this->parent_id = $json->parent_id ?? null;
-        $this->topic = $json->topic ?? null;
+        $this->topic = $json->topic ?? "";
         $this->guild_id = $json->guild_id ?? null;
-        $this->nsfw = $json->nsfw ?? null;
+        $this->nsfw = $json->nsfw ?? false;
         $this->permission_overwrites = $json->permission_overwrites ?? null;
         $this->rate_limit_per_user = $json->rate_limit_per_user ?? null;
         return $this;
