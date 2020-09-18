@@ -89,7 +89,7 @@ class Ourted extends Bot
     }
 }
 
-class EventListener extends \Ourted\Model\EventListener\EventListener
+class EventListener extends \Ourted\Model\EventListener
 {
 
 # Guild
