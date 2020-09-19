@@ -24,7 +24,7 @@ class Role
      */
     public function __construct($bot, $guild, $role_id = 000)
     {
-        $json = json_decode($bot->api->init_curl_with_header("guilds/{$guild->id}/roles", "", "GET"));
+        $json = json_decode($bot->api->send("guilds/{$guild->id}/roles", "", "GET"));
         if($role_id != 000) {
             foreach ($json as $key => $item) {
                 if ($item->id == $role_id) {

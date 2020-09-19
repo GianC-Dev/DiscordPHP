@@ -33,7 +33,7 @@ class User{
 
     public function leave($guild_id)
     {
-        return json_decode($this->bot->api->init_curl_with_header("users/@me/guilds/{$guild_id}", "", "GET"));
+        return json_decode($this->bot->api->send("users/@me/guilds/{$guild_id}", "", "GET"));
     }
 
 

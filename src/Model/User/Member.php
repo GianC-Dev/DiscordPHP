@@ -24,7 +24,7 @@ class Member
 
     public function __construct($bot, $guild, $user_id)
     {
-        $json = json_decode($bot->api->init_curl_with_header("guilds/{$guild->id}/members/{$user_id}", null, "GET"));
+        $json = json_decode($bot->api->send("guilds/{$guild->id}/members/{$user_id}", null, "GET"));
         $this->id = $user_id ?? null;
         $this->user = $json->user ?? null;
         $this->roles = $json->roles ?? null;

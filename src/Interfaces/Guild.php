@@ -26,7 +26,7 @@ class Guild
 
     public function get_guilds_properties()
     {
-        return json_decode($this->bot->api->init_curl_with_header(
+        return json_decode($this->bot->api->send(
             "users/@me/guilds",
             "", "GET"));
     }
@@ -65,7 +65,7 @@ class Guild
      */
     public function getChannels($guild)
     {
-        return json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/channels", "", "GET"));
+        return json_decode($this->bot->api->send("guilds/{$guild->id}/channels", "", "GET"));
     }
 
     /**
@@ -75,7 +75,7 @@ class Guild
      */
     public function getPrune($guild)
     {
-        return json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/prunes", "", "GET"));
+        return json_decode($this->bot->api->send("guilds/{$guild->id}/prunes", "", "GET"));
     }
 
     /**
@@ -85,7 +85,7 @@ class Guild
      */
     public function getInvites($guild)
     {
-        return json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/invites", "", "GET"));
+        return json_decode($this->bot->api->send("guilds/{$guild->id}/invites", "", "GET"));
     }
 
 
@@ -111,7 +111,7 @@ class Guild
      */
     public function addRole($guild, $role_name, $color, $mentionable, $hoist)
     {
-        $result = json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/roles", "{\"name\":\"{$role_name}\",  \"color\":\"{$color}\", \"hoist\":{$hoist}, \"mentionable\":{$mentionable}}", "POST"));
+        $result = json_decode($this->bot->api->send("guilds/{$guild->id}/roles", "{\"name\":\"{$role_name}\",  \"color\":\"{$color}\", \"hoist\":{$hoist}, \"mentionable\":{$mentionable}}", "POST"));
         return new Role($this->bot, $guild, $result->id);
     }
 
@@ -126,7 +126,7 @@ class Guild
      */
     public function modifyRole($guild, $role_name = null, $color = null, $mentionable = null, $hoist = null)
     {
-        $result = json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/roles", "{\"name\":\"{$role_name}\",  \"color\":\"{$color}\", \"hoist\":{$hoist}, \"mentionable\":{$mentionable}}", "PATCH"));
+        $result = json_decode($this->bot->api->send("guilds/{$guild->id}/roles", "{\"name\":\"{$role_name}\",  \"color\":\"{$color}\", \"hoist\":{$hoist}, \"mentionable\":{$mentionable}}", "PATCH"));
         return new Role($this->bot, $guild, $result->id);
     }
 
@@ -138,7 +138,7 @@ class Guild
      */
     public function deleteRole($guild, $role_id)
     {
-        $result = json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/roles/{$role_id}", "", "DELETE"));
+        $result = json_decode($this->bot->api->send("guilds/{$guild->id}/roles/{$role_id}", "", "DELETE"));
         return new Role($this->bot, $guild, $result->id);
     }
 
@@ -157,13 +157,13 @@ class Guild
      * @param bool
      * @return \Ourted\Model\Channel\Channel
      */
-    public function createChannel($guild, $channel_name, $type = 0, $topic = "", $permissions = null, $bitrate = null, $user_limit = null, $rate_limit_per_user = null, $position = null, $parent_id = null)
+    public function createChannel($guild, $channel_name, $type = 0, $topic = "", $bitrate = null, $user_limit = null, $rate_limit_per_user = null, $position = null, $parent_id = null)
     {
         $field = "";
         $field .= "\"name\": \"$channel_name\"";
         $field .= ",\"type\": $type";
         $field .= ",\"topic\": \"{$topic}\"";
-        if (!is_null($permissions)) {
+        /*if (!is_null($permissions)) {
             if (isset($permissions[0])) {
                 $__permissions = '';
                 foreach ($permissions as $key => $item) {
@@ -175,14 +175,14 @@ class Guild
                 }
                 $field .= ",\"permissions\": [{$__permissions}]";
             }
-        }
+        }*/
         if (!is_null($bitrate)) {
-            if ($type == $this->bot->GUILD_VOICE) {
+            if ($type == $this->bot->CHANNEL_GUILD_VOICE) {
                 $field .= ",\"bitrate\":{$bitrate} ";
             }
         }
         if (!is_null($user_limit)) {
-            if ($type == $this->bot->GUILD_VOICE) {
+            if ($type == $this->bot->CHANNEL_GUILD_VOICE) {
                 $field .= ",\"user_limit\": {$user_limit}";
             }
         }
@@ -195,7 +195,7 @@ class Guild
         if (!is_null($parent_id)) {
             $field .= ",\"parent_id\": {$parent_id}";
         }
-        $result = json_decode($this->bot->api->init_curl_with_header(
+        $result = json_decode($this->bot->api->send(
             "guilds/{$guild->id}/channels", "
             {{$field}}", "POST"));
         return new \Ourted\Model\Channel\Channel($this->bot, $result->id);
@@ -210,7 +210,7 @@ class Guild
      */
     public function changeChannelPosition($guild, $channel, $position)
     {
-        $result = json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/channels", "{\"id\":{$channel->id}, \"position\":{$position}}", "PATCH"));
+        $result = json_decode($this->bot->api->send("guilds/{$guild->id}/channels", "{\"id\":{$channel->id}, \"position\":{$position}}", "PATCH"));
         return new \Ourted\Model\Channel\Channel($this->bot, $result->id);
     }
 }

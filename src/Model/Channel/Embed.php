@@ -3,7 +3,6 @@
 namespace Ourted\Model\Channel;
 
 use Ourted\Bot;
-use Ourted\Model\Channel\Channel;
 
 class Embed
 {
@@ -75,7 +74,7 @@ class Embed
    \"fields\": [" . $this->get_fields() . "]
   }
 }";
-        $this->bot->api->init_curl_with_header(
+        $this->bot->api->send(
             "channels/{$this->embed['channel_id']}/messages",
              $field, "POST");
     }

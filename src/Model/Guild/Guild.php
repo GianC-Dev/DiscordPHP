@@ -50,7 +50,7 @@ class Guild
      */
     public function __construct($bot, $guild_id)
     {
-        $json = json_decode($bot->api->init_curl_with_header("guilds/{$guild_id}", "", "GET"));
+        $json = json_decode($bot->api->send("guilds/{$guild_id}", "", "GET"));
         $this->id = $json->id ?? null;
         $this->name = $json->name ?? null;
         $this->icon = $json->icon ?? null;

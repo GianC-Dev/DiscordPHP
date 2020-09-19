@@ -20,7 +20,7 @@ class Invite
      */
     public function __construct($bot, $invite_code)
     {
-        $json = json_decode($bot->api->init_curl_with_header("invites/{$invite_code}", "", "GET"));
+        $json = json_decode($bot->api->send("invites/{$invite_code}", "", "GET"));
         $this->code = $json->code ?? null;
         $this->guild = $bot->guild->getGuild($json->guild->id) ?? null;
         $this->channel = $bot->channel->getChannel($json->channel->id) ?? null;

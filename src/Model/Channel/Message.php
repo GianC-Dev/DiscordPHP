@@ -33,7 +33,7 @@ class Message
      */
     public function __construct($bot, $message_id, $channel)
     {
-        $result = json_decode($bot->api->init_curl_with_header(
+        $result = json_decode($bot->api->send(
             "channels/{$channel->id}/messages/{$message_id}",
             "", "GET"));
         $this->id = $result->id ?? null;

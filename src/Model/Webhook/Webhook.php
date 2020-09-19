@@ -25,7 +25,7 @@ class Webhook
 
     public function __construct($bot,  $webhook_id)
     {
-        $json = json_decode($bot->api->init_curl_with_header("webhooks/{$webhook_id}", null, "GET"));
+        $json = json_decode($bot->api->send("webhooks/{$webhook_id}", null, "GET"));
         $this->type = $json->type ?? null;
         $this->id = $json->id ?? null;
         $this->name = $json->name ?? null;

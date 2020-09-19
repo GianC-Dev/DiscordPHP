@@ -11,8 +11,9 @@ use Ourted\Interfaces\Member;
 use Ourted\Interfaces\User;
 use Ourted\Interfaces\Webhook;
 use Ourted\Model\Channel\Embed;
-use Ourted\Utils\API;
-use Ourted\Utils\Settings;
+use Ourted\Utils\getaway;
+use Ourted\Utils\http;
+use Ourted\Interfaces\Settings;
 use Ratchet\Client\Connector;
 use Ratchet\Client\WebSocket;
 use Ratchet\RFC6455\Messaging\MessageInterface;
@@ -22,44 +23,44 @@ class Bot
 {
 
 
-    public $CREATE_INSTANT_INVITE = 0x00000001;
-    public $KICK_MEMBERS = 0x00000002;
-    public $BAN_MEMBERS = 0x00000004;
-    public $ADMINISTRATOR = 0x00000008;
-    public $MANAGE_CHANNELS = 0x00000010;
-    public $MANAGE_GUILD = 0x00000020;
-    public $ADD_REACTIONS = 0x00000040;
-    public $VIEW_AUDIT_LOG = 0x00000080;
-    public $PRIORITY_SPEAKER = 0x00000100;
-    public $STREAM = 0x00000200;
-    public $VIEW_CHANNEL = 0x00000400;
-    public $SEND_MESSAGES = 0x00000800;
-    public $SEND_TTS_MESSAGES = 0x00001000;
-    public $MANAGE_MESSAGES = 0x00002000;
-    public $EMBED_LINKS = 0x00004000;
-    public $ATTACH_FILES = 0x00008000;
-    public $READ_MESSAGE_HISTORY = 0x00010000;
-    public $MENTION_EVERYONE = 0x00020000;
-    public $USE_EXTERNAL_EMOJIS = 0x00040000;
-    public $VIEW_GUILD_INSIGHTS = 0x00080000;
-    public $CONNECT = 0x00100000;
-    public $SPEAK = 0x00200000;
-    public $MUTE_MEMBERS = 0x00400000;
-    public $DEAFEN_MEMBERS = 0x00800000;
-    public $MOVE_MEMBERS = 0x01000000;
-    public $USE_VAD = 0x02000000;
-    public $CHANGE_NICKNAME = 0x04000000;
-    public $MANAGE_NICKNAMES = 0x08000000;
-    public $MANAGE_ROLES = 0x10000000;
-    public $MANAGE_WEBHOOKS = 0x20000000;
-    public $MANAGE_EMOJIS = 0x40000000;
+    public $PERMISSION_CREATE_INSTANT_INVITE = 0x00000001;
+    public $PERMISSION_KICK_MEMBERS = 0x00000002;
+    public $PERMISSION_BAN_MEMBERS = 0x00000004;
+    public $PERMISSION_ADMINISTRATOR = 0x00000008;
+    public $PERMISSION_MANAGE_CHANNELS = 0x00000010;
+    public $PERMISSION_MANAGE_GUILD = 0x00000020;
+    public $PERMISSION_ADD_REACTIONS = 0x00000040;
+    public $PERMISSION_VIEW_AUDIT_LOG = 0x00000080;
+    public $PERMISSION_PRIORITY_SPEAKER = 0x00000100;
+    public $PERMISSION_STREAM = 0x00000200;
+    public $PERMISSION_VIEW_CHANNEL = 0x00000400;
+    public $PERMISSION_SEND_MESSAGES = 0x00000800;
+    public $PERMISSION_SEND_TTS_MESSAGES = 0x00001000;
+    public $PERMISSION_MANAGE_MESSAGES = 0x00002000;
+    public $PERMISSION_EMBED_LINKS = 0x00004000;
+    public $PERMISSION_ATTACH_FILES = 0x00008000;
+    public $PERMISSION_READ_MESSAGE_HISTORY = 0x00010000;
+    public $PERMISSION_MENTION_EVERYONE = 0x00020000;
+    public $PERMISSION_USE_EXTERNAL_EMOJIS = 0x00040000;
+    public $PERMISSION_VIEW_GUILD_INSIGHTS = 0x00080000;
+    public $PERMISSION_CONNECT = 0x00100000;
+    public $PERMISSION_SPEAK = 0x00200000;
+    public $PERMISSION_MUTE_MEMBERS = 0x00400000;
+    public $PERMISSION_DEAFEN_MEMBERS = 0x00800000;
+    public $PERMISSION_MOVE_MEMBERS = 0x01000000;
+    public $PERMISSION_USE_VAD = 0x02000000;
+    public $PERMISSION_CHANGE_NICKNAME = 0x04000000;
+    public $PERMISSION_MANAGE_NICKNAMES = 0x08000000;
+    public $PERMISSION_MANAGE_ROLES = 0x10000000;
+    public $PERMISSION_MANAGE_WEBHOOKS = 0x20000000;
+    public $PERMISSION_MANAGE_EMOJIS = 0x40000000;
 
-    public $GUILD_TEXT = 0;
-    public $DM = 1;
-    public $GUILD_VOICE = 2;
-    public $GROUP_DM = 3;
-    public $GUILD_NEWS = 4;
-    public $GUILD_STORE = 5;
+    public $CHANNEL_CHANNEL_GUILD_TEXT = 0;
+    public $CHANNEL_DM = 1;
+    public $CHANNEL_GUILD_VOICE = 2;
+    public $CHANNEL_GROUP_DM = 3;
+    public $CHANNEL_GUILD_NEWS = 4;
+    public $CHANNEL_GUILD_STORE = 5;
 
     public $GAME_LISTEN = 2;
     public $GAME_WATCHING = 1;
@@ -67,10 +68,10 @@ class Bot
 
 
     /**
-     * State
-     * @var State
+     * Getaway
+     * @var getaway
      */
-    public $state;
+    public $getaway;
     /**
      * Functions
      * @var Settings Instance
@@ -90,7 +91,7 @@ class Bot
      * @var bool
      */
     public $send_log = false;
-    /** @var API */
+    /** @var http */
     public $api;
     /** @var Channel */
     public $channel;
@@ -169,7 +170,7 @@ class Bot
         $this->invite = new Invite($this);
         $this->guild = new Guild($this);
         $this->user = new User($this);
-        $this->api = new API($this);
+        $this->api = new http($this);
 
         $this->loop = Factory::create();
         $this->init();
@@ -183,17 +184,17 @@ class Bot
         $connector = new Connector($this->loop, new \React\Socket\Connector($this->loop));
         $connector($this->wssUrl)->then(function (WebSocket $conn) {
             $this->connection = $conn;
-            $this->state = $state = new State($conn, $this->loop, $this->token);
-            $this->state->send_log = $this->send_log;
-            $state->addDispatch($this->dispatch);
+            $this->getaway = $getaway = new getaway($conn, $this->loop, $this->token);
+            $this->getaway->send_log = $this->send_log;
+            $getaway->addDispatch($this->dispatch);
 
 
-            $conn->on('message', function (MessageInterface $msg) use ($conn, $state) {
+            $conn->on('message', function (MessageInterface $msg) use ($conn, $getaway) {
                 $json = json_decode($msg);
                 if (isset($json->d->session_id)) {
                     $this->session_id = $json->d->session_id;
                 }
-                $state->action($json, $this->loop);
+                $getaway->action($json);
             });
 
 

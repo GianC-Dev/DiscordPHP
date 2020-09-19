@@ -27,6 +27,6 @@ class Webhook{
         if(!is_null($avatar_image_data)){
             $field .= ", \"avatar\": \"{$avatar_image_data}\"";
         }
-        return new \Ourted\Model\Webhook\Webhook($bot, json_decode($bot->api->init_curl_with_header("channels/{$channel->id}/webhooks", "{{$field}}"))->id);
+        return new \Ourted\Model\Webhook\Webhook($bot, json_decode($bot->api->send("channels/{$channel->id}/webhooks", "{{$field}}"))->id);
     }
 }

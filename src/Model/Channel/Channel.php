@@ -28,7 +28,7 @@ class Channel
      */
     public function __construct($bot, $channel_id)
     {
-        $result = $bot->api->init_curl_with_header(
+        $result = $bot->api->send(
             "channels/{$channel_id}",
             "", "GET");
         $json = json_decode($result);

@@ -28,7 +28,7 @@ class Channel{
      */
 
     public function sendMessage($message, $channel){
-        $this->bot->api->init_curl_with_header(
+        $this->bot->api->send(
             "channels/{$channel->id}/messages",
             "{\"content\":\"{$message}\"}");
     }
@@ -42,7 +42,7 @@ class Channel{
 
     public function deleteMessage($message)
     {
-        return $this->bot->api->init_curl_with_header(
+        return $this->bot->api->send(
             "channels/{$message->channel_id}/messages/{$message->id}",
             "", "DELETE");
     }
@@ -57,7 +57,7 @@ class Channel{
 
     public function deleteBulkMessage($message, $channel)
     {
-        return json_decode($this->bot->api->init_curl_with_header(
+        return json_decode($this->bot->api->send(
             "channels/{$channel->id}/messages/bulk-delete",
             "{\"messages\":{$message}}", "POST"));
     }
@@ -72,7 +72,7 @@ class Channel{
 
     public function getMessages($channel, $limit = 50)
     {
-        return json_decode($this->bot->api->init_curl_with_header(
+        return json_decode($this->bot->api->send(
             "channels/{$channel->id}/messages?limit={$limit}",
             "", "GET"));
     }
@@ -96,7 +96,7 @@ class Channel{
      * @return mixed
      */
     public function deleteChannel($channel){
-        return json_decode($this->bot->api->init_curl_with_header("channels/{$channel->id}","", "DELETE"));
+        return json_decode($this->bot->api->send("channels/{$channel->id}","", "DELETE"));
     }
 
 }

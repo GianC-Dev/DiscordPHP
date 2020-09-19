@@ -26,7 +26,7 @@ class Integration
      */
     public function __construct($bot, $guild_id)
     {
-        $json = json_decode($bot->api->init_curl_with_header("guilds/{$guild_id}/integrations", "", "GET"));
+        $json = json_decode($bot->api->send("guilds/{$guild_id}/integrations", "", "GET"));
         $this->id = $json->id;
         $this->name = $json->name;
         $this->type = $json->type;

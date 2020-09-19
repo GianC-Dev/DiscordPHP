@@ -25,7 +25,7 @@ class User
 
     public function __construct($bot, $user_id)
     {
-        $json = json_decode($bot->api->init_curl_with_header("users/{$user_id}", null, "GET"));
+        $json = json_decode($bot->api->send("users/{$user_id}", null, "GET"));
         $this->id = $json->id ?? null;
         $this->username = $json->username ?? null;
         $this->discriminator= $json->discriminator ?? null;

@@ -39,7 +39,7 @@ class Member
      */
     public function setNickname($guild, $user, $nickname)
     {
-        return json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/members/{$user->id}", "{\"nick\":\"{$nickname}\"}", "PATCH"));
+        return json_decode($this->bot->api->send("guilds/{$guild->id}/members/{$user->id}", "{\"nick\":\"{$nickname}\"}", "PATCH"));
     }
 
     /**
@@ -51,7 +51,7 @@ class Member
      */
     public function setMute($guild, $user, $mute)
     {
-        return json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/members/{$user->id}", "{\"mute\":{$mute}}", "PATCH"));
+        return json_decode($this->bot->api->send("guilds/{$guild->id}/members/{$user->id}", "{\"mute\":{$mute}}", "PATCH"));
     }
 
     /**
@@ -63,7 +63,7 @@ class Member
      */
     public function setBan($guild, $user, $reason = "")
     {
-        return json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/bans/{$user->id}", "{\"reason\":\"{$reason}\"}", "PUT"));
+        return json_decode($this->bot->api->send("guilds/{$guild->id}/bans/{$user->id}", "{\"reason\":\"{$reason}\"}", "PUT"));
     }
 
     /**
@@ -75,7 +75,7 @@ class Member
      */
     public function unBan($guild, $user, $reason = "")
     {
-        return json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/bans/{$user->id}", "{\"reason\":\"{$reason}\"}", "DELETE"));
+        return json_decode($this->bot->api->send("guilds/{$guild->id}/bans/{$user->id}", "{\"reason\":\"{$reason}\"}", "DELETE"));
     }
 
 
@@ -87,7 +87,7 @@ class Member
      */
     public function kick($guild, $user)
     {
-        return json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/members/{$user->id}", "", "DELETE"));
+        return json_decode($this->bot->api->send("guilds/{$guild->id}/members/{$user->id}", "", "DELETE"));
     }
 
     /**
@@ -99,7 +99,7 @@ class Member
      */
     public function removeRole($guild, $user, $role)
     {
-        return json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/members/{$user->id}/roles/{$role->id}", "", "DELETE"));
+        return json_decode($this->bot->api->send("guilds/{$guild->id}/members/{$user->id}/roles/{$role->id}", "", "DELETE"));
     }
 
     /**
@@ -111,7 +111,7 @@ class Member
      */
     public function addRole($guild, $user, $role)
     {
-        return json_decode($this->bot->api->init_curl_with_header("guilds/{$guild->id}/members/{$user->id}/roles/{$role->id}", "", "PUT"));
+        return json_decode($this->bot->api->send("guilds/{$guild->id}/members/{$user->id}/roles/{$role->id}", "", "PUT"));
     }
 
 

@@ -21,7 +21,7 @@ class Emoji
      */
     public function getEmojis($guild)
     {
-        return json_decode($this->bot->api->init_curl_with_header(
+        return json_decode($this->bot->api->send(
             "guilds/{$guild->id}/emojis",
             "", "GET"));
     }
@@ -34,7 +34,7 @@ class Emoji
      */
     public function createEmoji($guild, $name, $image)
     {
-        return $this->getEmoji($guild, json_decode($this->bot->api->init_curl_with_header(
+        return $this->getEmoji($guild, json_decode($this->bot->api->send(
             "guilds/{$guild->id}/emojis",
             "{\"name\":\"{$name}\",\"image\":\"{$image}\",\"roles\":\"[]\"}"))->id);
     }
@@ -56,7 +56,7 @@ class Emoji
      */
     public function deleteEmoji($guild, $emoji)
     {
-        return $this->getEmoji($guild, json_decode($this->bot->api->init_curl_with_header(
+        return $this->getEmoji($guild, json_decode($this->bot->api->send(
             "guilds/{$guild->id}/emojis/{$emoji->id}",
             "", "DELETE"))->id);
     }
