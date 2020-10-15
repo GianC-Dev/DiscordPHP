@@ -157,25 +157,20 @@ class Guild
      * @param bool
      * @return \Ourted\Model\Channel\Channel
      */
-    public function createChannel($guild, $channel_name, $type = 0, $topic = "", $bitrate = null, $user_limit = null, $rate_limit_per_user = null, $position = null, $parent_id = null)
+    public function createChannel($guild, $channel_name, $type = 0, $topic = "", $permissions = null, $bitrate = null, $user_limit = null, $rate_limit_per_user = null, $position = null, $parent_id = null)
     {
         $field = "";
         $field .= "\"name\": \"$channel_name\"";
         $field .= ",\"type\": $type";
         $field .= ",\"topic\": \"{$topic}\"";
-        /*if (!is_null($permissions)) {
-            if (isset($permissions[0])) {
-                $__permissions = '';
-                foreach ($permissions as $key => $item) {
-                    if ($key == 0) {
-                        $__permissions .= "{$item}";
-                    } else {
-                        $__permissions .= ",{$item}";
-                    }
-                }
-                $field .= ",\"permissions\": [{$__permissions}]";
+        if (!is_null($permissions)) {
+            $n_item = "";
+            foreach ($permissions as $item) {
+                $n_item .= $item;
             }
-        }*/
+            $field .= ",\"permission_overwrites\": [{$item}]";
+
+        }
         if (!is_null($bitrate)) {
             if ($type == $this->bot->CHANNEL_GUILD_VOICE) {
                 $field .= ",\"bitrate\":{$bitrate} ";

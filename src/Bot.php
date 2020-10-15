@@ -19,6 +19,7 @@ use Ratchet\Client\WebSocket;
 use Ratchet\RFC6455\Messaging\MessageInterface;
 use React\EventLoop\Factory;
 
+
 class Bot
 {
 
@@ -66,6 +67,8 @@ class Bot
     public $GAME_WATCHING = 1;
     public $GAME_PLAYING = 0;
 
+    public $OVERWRITE_TYPE_ROLE = 0;
+    public $OVERWRITE_TYPE_MEMBER = 1;
 
     /**
      * Getaway

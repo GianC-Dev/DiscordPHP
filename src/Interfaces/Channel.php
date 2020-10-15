@@ -4,8 +4,10 @@ namespace Ourted\Interfaces;
 
 use Ourted\Bot;
 use Ourted\Model\Channel\Message;
+use Ourted\Model\Channel\Overwrite;
 
-class Channel{
+class Channel
+{
 
     /** @var Bot */
     private $bot;
@@ -15,7 +17,8 @@ class Channel{
         $this->bot = $bot;
     }
 
-    public function getChannel($channel_id){
+    public function getChannel($channel_id)
+    {
         return new \Ourted\Model\Channel\Channel($this->bot, $channel_id);
     }
 
@@ -27,7 +30,8 @@ class Channel{
      * @var \Ourted\Model\Channel\Channel $channel
      */
 
-    public function sendMessage($message, $channel){
+    public function sendMessage($message, $channel)
+    {
         $this->bot->api->send(
             "channels/{$channel->id}/messages",
             "{\"content\":\"{$message}\"}");
@@ -95,8 +99,27 @@ class Channel{
      * @param $channel \Ourted\Model\Channel\Channel
      * @return mixed
      */
-    public function deleteChannel($channel){
-        return json_decode($this->bot->api->send("channels/{$channel->id}","", "DELETE"));
+    public function deleteChannel($channel)
+    {
+        return json_decode($this->bot->api->send("channels/{$channel->id}", "", "DELETE"));
     }
 
+    /**
+     * @param array $overwrites
+     * @return array
+     */
+    public function createOverwrite(array ...$overwrites)
+    {
+        $r = array();
+        array_keys($overwrites);
+        foreach ($overwrites as $item) {
+            $id = $item[0];
+            $type = $item[1];
+            $allow = $item[2];
+            $deny = $item[3];
+            $o = new Overwrite($id, $type, $allow, $deny);
+            $r[] = $o->create_object();
+        }
+        return $r;
+    }
 }

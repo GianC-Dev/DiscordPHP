@@ -147,7 +147,7 @@ class getaway
     private function hello($json){
         $this->send_log ?
             $this->log('Execute: HELLO') : null;
-        $interval = intval($json->d->heartbeat_interval / 1000);
+        $interval = intval($json->d->heartbeat_interval) / 1000;
         $this->getLoop()->addPeriodicTimer($interval, function () {
             $this->keep_alive();
         });
