@@ -5,15 +5,16 @@ namespace Ourted;
 use Closure;
 use Exception;
 use Ourted\Interfaces\Channel;
+use Ourted\Interfaces\Emoji;
 use Ourted\Interfaces\Guild;
 use Ourted\Interfaces\Invite;
 use Ourted\Interfaces\Member;
+use Ourted\Interfaces\Settings;
 use Ourted\Interfaces\User;
 use Ourted\Interfaces\Webhook;
 use Ourted\Model\Channel\Embed;
 use Ourted\Utils\getaway;
 use Ourted\Utils\http;
-use Ourted\Interfaces\Settings;
 use Ratchet\Client\Connector;
 use Ratchet\Client\WebSocket;
 use Ratchet\RFC6455\Messaging\MessageInterface;
@@ -108,6 +109,8 @@ class Bot
     public $invite;
     /** @var Webhook */
     public $webhook;
+    /** @var Emoji */
+    public $emoji;
     /**
      * @var mixed
      */
@@ -171,6 +174,7 @@ class Bot
         $this->channel = new Channel($this);
         $this->member = new Member($this);
         $this->invite = new Invite($this);
+        $this->emoji = new Emoji($this);
         $this->guild = new Guild($this);
         $this->user = new User($this);
         $this->api = new http($this);
@@ -202,18 +206,20 @@ class Bot
 
 
             $conn->on('close', function ($code = null, $reason = null) use ($conn) {
-                echo "\nConnection closed ({$code} - {$reason})\n";
+                echo "\nConnection closed ({$code} ". $reason != null ? "- {$reason})\n" : "\n";
                 if (!$this->reconnect) {
                     die();
                 } else {
-                    $conn->send(json_encode([
-                        "op" => 6,
-                        "d" => [
-                            "token" => $this->getBot()->token,
-                            "session_id" => $this->getBot()->session_id,
-                            "seq" => 1337
-                        ]
-                    ]));
+                    echo "We are begin of a rate limit, connect retrying after 60 seconds.";
+                    $this->loop->addTimer(60, function () use ($conn) {
+                        $conn->send(json_encode([
+                            "op" => 6,
+                            "d" => [
+                                "token" => $this->getBot()->token,
+                                "session_id" => $this->getBot()->session_id,
+                                "seq" => 1337
+                            ]
+                        ]));});
                 }
             });
 
@@ -272,10 +278,11 @@ class Bot
         $function($this, $command_name);
     }
 
-    public function getImageData($image_path){
-        if(!file_exists($image_path) || str_ends_with($image_path, ("png" || "jpg" || "jpeg" | "PNG" || "JPG" || "JPEG"))) return "Fail";
+    public function getImageData($image_path)
+    {
+        if (!file_exists($image_path) || str_ends_with($image_path, ("png" || "jpg" || "jpeg" | "PNG" || "JPG" || "JPEG"))) return "Fail";
         $imageData = base64_encode(file_get_contents($image_path));
-        return 'data: '.mime_content_type($image_path).';base64,'.$imageData;
+        return 'data: ' . mime_content_type($image_path) . ';base64,' . $imageData;
     }
 
     /**

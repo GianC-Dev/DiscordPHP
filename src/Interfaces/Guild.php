@@ -165,11 +165,10 @@ class Guild
         $field .= ",\"topic\": \"{$topic}\"";
         if (!is_null($permissions)) {
             $n_item = "";
-            foreach ($permissions as $item) {
-                $n_item .= $item;
+            foreach ($permissions as $key => $item) {
+                $n_item .= $key == 0 ? $item : "," . $item;
             }
-            $field .= ",\"permission_overwrites\": [{$item}]";
-
+            $field .= ",\"permission_overwrites\": [{$n_item}]";
         }
         if (!is_null($bitrate)) {
             if ($type == $this->bot->CHANNEL_GUILD_VOICE) {

@@ -41,7 +41,18 @@ class Channel
         $this->topic = $json->topic ?? "";
         $this->guild_id = $json->guild_id ?? null;
         $this->nsfw = $json->nsfw ?? false;
-        $this->permission_overwrites = $json->permission_overwrites ?? null;
+        if (!is_null($json->permission_overwrites)){
+            $n_permissions = array();
+            foreach (json_decode($result, true)["permission_overwrites"] as $item){
+                if($item["type"] == "role"){
+                    $item["type"] = 0;
+                }else{
+                    $item["type"] = 1;
+                }
+                $n_permissions[] = array($item["id"], $item["type"], $item["allow"], $item["deny"]);
+            }
+            $this->permission_overwrites = $bot->channel->createOverwrite($n_permissions);
+        }
         $this->rate_limit_per_user = $json->rate_limit_per_user ?? null;
         return $this;
     }

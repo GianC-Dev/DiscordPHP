@@ -113,13 +113,28 @@ class Channel
         $r = array();
         array_keys($overwrites);
         foreach ($overwrites as $item) {
-            $id = $item[0];
-            $type = $item[1];
-            $allow = $item[2];
-            $deny = $item[3];
-            $o = new Overwrite($id, $type, $allow, $deny);
-            $r[] = $o->create_object();
+            if(isset($overwrites[0][0])) {
+                if (empty($item) || !array_key_exists(0, $item[0]) || !array_key_exists(1, $item[0]) || !array_key_exists(2, $item[0]) || !array_key_exists(3, $item[0])) return $r;
+                $id = $item[0][0];
+                $type = $item[0][1];
+                $allow = $item[0][2];
+                $deny = $item[0][3];
+                $o = new Overwrite($id, $type, $allow, $deny);
+            }else{
+                if (empty($item) || !array_key_exists(0, $item) || !array_key_exists(1, $item) || !array_key_exists(2, $item) || !array_key_exists(3, $item)) return $r;
+                $id = $item[0];
+                $type = $item[1];
+                $allow = $item[2];
+                $deny = $item[3];
+                $o = new Overwrite($id, $type, $allow, $deny);
+            }
+            $r[] = json_decode($o->create_object(), true);
         }
         return $r;
+    }
+
+    public function createReaction(\Ourted\Model\Channel\Channel $channel, Message $message, \Ourted\Model\Guild\Emoji $emoji){
+        return json_decode($this->bot->api->send("channels/{$channel->id}/messages/{$message->id}/reactions/{$emoji->name}:{$emoji->id}/@me", "", "PUT"));
+        // /channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me
     }
 }

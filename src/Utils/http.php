@@ -5,7 +5,6 @@ namespace Ourted\Utils;
 use Ourted\Bot;
 
 
-
 class http
 {
 
@@ -51,13 +50,12 @@ class http
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $result = curl_exec($ch);
         if (isset(json_decode($result, true)["X-Ratelimit-Remaining"])) {
-            $remaining = json_decode($result, true)["X-Ratelimit-Remaining"];
-            if ($remaining == 0) {
-                $reset = json_decode($result, true)["X-Ratelimit-Reset"] - time();
-                echo "We are begin of a rate limit, connect retrying after {$reset} seconds.";
-                sleep($reset);
-                return $this->send($url, $field, $request);
-            }
+            $reset = json_decode($result, true)["X-Ratelimit-Reset"] - time();
+            echo "We are begin of a rate limit, connect retrying after {$reset} seconds.";
+            $this->bot->loop->addTimer($reset, function () use ($url, $field, $request) {
+                $this->send($url, $field, $request);
+            });
+            return sleep($reset);
         }
         return $result;
     }
