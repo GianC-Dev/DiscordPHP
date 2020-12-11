@@ -168,6 +168,7 @@ class getaway
                     ],
                     'compress' => false,
                     'shard' => [0, 1],
+                    'intents' => 1,
                     'large_threshold' => 250,
                 ]
             ]

@@ -38,7 +38,7 @@ class http
     public function send($url, $field, $request = "POST")
     {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://discord.com/api/v6/" . $url);
+        curl_setopt($ch, CURLOPT_URL, "https://discord.com/api/v8/" . $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $request);
         curl_setopt($ch, CURLOPT_POST, 1);

@@ -96,98 +96,280 @@ class Ourted extends Bot
 
 class EventListener extends \Ourted\Model\EventListener\EventListener
 {
- # Guild
+
+ /* GUILDS (1<<0) */
+
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onGuildCreate($json, $bot)
     {
 
     }
-
-    public function onGuildUpdate($json, $bot)
-    {
-
-    }
-
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onGuildDelete($json, $bot)
     {
 
     }
-
-    # Member
-    public function onGuildMemberAdd($json, $bot)
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onGuildUpdate($json, $bot)
     {
 
     }
-
-    public function onGuildMemberUpdate($json, $bot)
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onGuildRoleCreate($json, $bot)
     {
 
     }
-
-    public function onGuildMemberDelete($json, $bot)
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onGuildRoleUpdate($json, $bot)
     {
 
     }
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onGuildRoleDelete($json, $bot)
+    {
 
-    # Channel
+    }
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onChannelCreate($json, $bot)
     {
 
     }
-
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onChannelUpdate($json, $bot)
     {
 
     }
-
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onChannelDelete($json, $bot)
     {
 
     }
-
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onChannelPinsUpdate($json, $bot)
     {
 
     }
 
+    /* GUILD_MEMBERS (1<<0) */
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onGuildMemberAdd($json, $bot)
+    {
 
+    }
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onGuildMemberUpdate($json, $bot)
+    {
 
-
-
-
-    # Role
-    public function onGuildRoleCreate($json, $bot)
+    }
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onGuildMemberDelete($json, $bot)
     {
 
     }
 
-    public function onGuildRoleUpdate($json, $bot)
+
+    /* GUILD_BANS (1<<2) */
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onGuildBanAdd($json, $bot)
+    {
+
+    }
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onGuildBanRemove($json, $bot)
     {
 
     }
 
-    public function onGuildRoleDelete($json, $bot)
+    /* GUILD_EMOJIS (1<<3) */
+        /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onGuildEmojisUpdate($json, $bot)
     {
 
     }
 
-    #Message
+    /* GUILD_INTEGRATIONS (1<<3) */
+        /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onGuildIntegrationsUpdate($json, $bot)
+    {
 
+    }
+    
+    /* GUILD_WEBHOOKS (1 << 5) */
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onWebhooksUpdate($json, $bot)
+    {
+
+    }
+    
+    /* GUILD_INVITES (1 << 6) */
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onInviteCreate($json, $bot)
+    {
+
+    }
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onInviteDelete($json, $bot)
+    {
+
+    }    
+    
+    /* GUILD_VOICE_STATES (1 << 7) */
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onVoiceStateUpdate($json, $bot)
+    {
+
+    }
+
+    /* GUILD_PRESENCES (1 << 8) */
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onPresenceUpdate($json, $bot)
+    {
+
+    }
+    
+    /* GUILD_MESSAGES (1 << 9) */
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
     public function onMessageCreate($json, $bot)
     {
-        /* 
-        Content: $json->content
-        Author Username: $json->author->username
-        Author Discriminator: $json->author->discriminator
-        Author ID: $json->author->id
-        */
 
-        if(isset($json->author->bot)){
-            return;
-        }
-        $this->channel->sendMessage("Message Sent! By: <@{$json->author->id}>, Content: {$json->content}", $json->channel_id);
+    }
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onMessageUpdate($json, $bot)
+    {
+
+    }
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onMessageDelete($json, $bot)
+    {
+
+    }
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onMessageDeleteBulk($json, $bot)
+    {
+
     }
 
+    /* -GUILD_MESSAGE_REACTIONS (1 << 10) */
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onMessageReactionAdd($json, $bot)
+    {
 
+    }
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onMessageReactionRemove($json, $bot)
+    {
+
+    }
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onMessageReactionRemoveAll($json, $bot)
+    {
+
+    }
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onMessageReactionRemoveEmoji($json, $bot)
+    {
+
+    }
+    
+    /* GUILD_MESSAGE_TYPING (1 << 11) */
+    /**
+     * @param mixed $json
+     * @param Bot $bot
+     */
+    public function onTypingStart($json, $bot)
+    {
+
+    } 
 }
 
 new Ourted();
